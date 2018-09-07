@@ -1,17 +1,16 @@
 <!--index.wxml-->
 <view class="container">
-  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
   <view class="section online-search">
     <view class="item line">
       <navigator url="../onlineSearch/onlineSearch">
-        <image class="online-search-icon" src="../../images/index/online-search-icon.png"></image>
+        <image class="online-search-icon" src="/images/index/online-search-icon.png"></image>
         <text class="title">网上查档</text>
         <text class="sub-title">一网查档、百馆联动</text>
       </navigator>
     </view>
     <view class="item welcome-box">
       <view class="user-icon">
-        <image src="../../images/index/user-icon.png"></image>
+        <image src="/images/index/user-icon.png"></image>
       </view>
       <text class="user-name">亲爱的 {{userInfo.nickName}}</text>
       <text class="welcome">欢迎使用浙江档案服务网</text>
@@ -21,25 +20,25 @@
   <view class="section menu-box">
     <view class="item">
       <navigator url="../guide/guide">
-        <image class="menu-icon" src="../../images/index/guide-icon.png"></image>
+        <image class="menu-icon" src="/images/index/guide-icon.png"></image>
         <text class="menu-title">查档指引</text>
       </navigator>
     </view>
     <view class="item">
       <navigator url="../public/public">
-        <image class="menu-icon" src="../../images/index/public-icon.png"></image>
+        <image class="menu-icon" src="/images/index/public-icon.png"></image>
         <text class="menu-title">开放档案</text>
       </navigator>
     </view>
     <view class="item">
       <navigator url="../chat/chat">
-        <image class="menu-icon" src="../../images/index/chat-icon.png"></image>
+        <image class="menu-icon" src="/images/index/chat-icon.png"></image>
         <text class="menu-title">网上咨询</text>
       </navigator>
     </view>
     <view class="item">
       <navigator url="../eRecord/eRecord">
-        <image class="menu-icon" src="../../images/index/e-record-icon.png"></image>
+        <image class="menu-icon" src="/images/index/e-record-icon.png"></image>
         <text class="menu-title">电子档案</text>
       </navigator>
     </view>
@@ -47,7 +46,7 @@
 
   <view class="section notice-box">
     <view class="notice-box-header">
-      <image class="notice-bg" src="../../images/index/notice-bg.png"></image>
+      <image class="notice-bg" src="/images/index/notice-bg.png"></image>
       <text class="notice-title">信息公告</text>
     </view>
     <view class="notice-list">
@@ -64,7 +63,7 @@
 
   <view class="section notice-box" style="margin-bottom: 0;">
     <view class="notice-box-header">
-      <image class="notice-bg" src="../../images/index/consult-bg.png"></image>
+      <image class="notice-bg" src="/images/index/consult-bg.png"></image>
       <text class="notice-title">咨询中心</text>
     </view>
     <view class="notice-list">

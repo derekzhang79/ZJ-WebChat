@@ -1,6 +1,10 @@
 /**app.wxss**/
-.container {
+page {
   height: 100%;
+}
+
+.container {
+  min-height: 100%;
   padding: 25rpx;
   box-sizing: border-box;
   background: #efeff4;
@@ -10,6 +14,3 @@ view,image,text,navigator {
   box-sizing: border-box;
 }
 
-page {
-  height: 100%;
-}
