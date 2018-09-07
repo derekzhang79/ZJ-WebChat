@@ -32,20 +32,21 @@
   font-size: 26rpx;
 }
 .online-search-icon {
-  width: 100rpx;
-  height: 100rpx;
+  width: 120rpx;
+  height: 120rpx;
 }
 
 .welcome-box {
   padding: 24rpx 20rpx;
 }
-.welcome-box .user-icon {
+.welcome-box .user-photo {
   text-align: center;
-  margin-bottom: 30rpx;
+  margin-bottom: 8rpx;
 }
-.welcome-box .user-icon image {
-  width: 100rpx;
-  height: 80rpx;
+.welcome-box .user-photo image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
 }
 .welcome-box .user-name {
   display: block;
@@ -68,8 +69,8 @@
   text-align: center;
 }
 .menu-box .menu-icon {
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 .menu-box .menu-title {
   display: block;

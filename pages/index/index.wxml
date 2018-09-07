@@ -9,8 +9,8 @@
       </navigator>
     </view>
     <view class="item welcome-box">
-      <view class="user-icon">
-        <image src="/images/index/user-icon.png"></image>
+      <view class="user-photo">
+        <image src="{{userInfo.avatarUrl}}"></image>
       </view>
       <text class="user-name">亲爱的 {{userInfo.nickName}}</text>
       <text class="welcome">欢迎使用浙江档案服务网</text>
