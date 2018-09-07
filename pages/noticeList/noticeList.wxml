@@ -1,0 +1,11 @@
+<!--pages/noticeList/noticeList.wxml-->
+<scroll-view style='height: 100%;' scroll-y="true" bindscrolltolower="getMore">
+  <view class="notice-list">
+    <navigator class="item" wx:for="{{noticeList}}" wx:key="item.id" url="../noticeDetail/noticeDetail?id={{item.id}}">
+      <text class="title">{{item.publish_title}}</text>
+      <text class="date">{{item.publish_date}}</text>
+    </navigator>
+  </view>
+  <view class="loading" hidden="{{!loading}}">正在载入更多...</view>
+  <view class="loading complete" hidden="{{!oadingComplete}}">已加载全部</view>
+</scroll-view>

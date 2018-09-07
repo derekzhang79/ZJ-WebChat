@@ -1,0 +1,28 @@
+/* pages/noticeList/noticeList.wxss */
+.notice-list {
+  padding: 0 30rpx;
+}
+.notice-list .item {
+  display: flex;
+  border-bottom: 1px solid #cdcde0;
+  line-height: 90rpx;
+}
+.notice-list .title {
+  flex: 1;
+  font-size: 34rpx;
+  color: #333;
+}
+.notice-list .date {
+  width: 190rpx;
+  font-size: 30rpx;
+  color: #999;
+  text-align: right;
+}
+.loading {
+  display: block;
+  width: 100%;
+  line-height: 90rpx;
+  color: blue;
+  font-size: 30rpx;
+  text-align: center;
+}
