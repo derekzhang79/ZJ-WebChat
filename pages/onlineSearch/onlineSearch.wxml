@@ -1,2 +1,191 @@
 <!--pages/onlineSearch/onlineSearch.wxml-->
-<text>pages/onlineSearch/onlineSearch.wxml</text>
+<view class="container">
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>  
+  <form class="page__bd" bindsubmit="formSubmit">
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">证件类型</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="zjType" bindchange="bindZjTypeChange" value="{{zjTypeIndex}}" range="{{zjTypes}}" range-key="name">
+            <view class="weui-select">
+              {{zjTypes[zjTypeIndex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">证件号码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="zjCode" class="weui-input" placeholder="请输入证件号码(必输项)"/>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">申请人</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="sqName" class="weui-input" placeholder="请输入姓名(必输项)"/>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">所属地区</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="sqArea" bindchange="" value="{{sqAreaIndex}}" range="{{sqAreas}}" range-key="name">
+            <view class="weui-select">
+              {{sqAreas[sqAreaIndex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">申请电话</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="sqPhone" class="weui-input" placeholder="请输入电话(必输项)"/>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">所属单位</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="sqUnit" class="weui-input" placeholder="请输入单位名称(必输项)"/>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">利用目的</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="lyObjec" bindchange="" value="{{lyObjecIndex}}" range="{{lyObjecs}}" range-key="name">
+            <view class="weui-select">
+              {{lyObjecs[lyObjecIndex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">受理档案馆</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="targetDag" class="weui-input" placeholder="请输入档案馆名称(必输项)"/>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="textarea-title">利用方式</view>
+          <textarea name="lyMethod" class="weui-textarea" bindblur="bindTextAreaBlur" style="height: 3.3em" placeholder="请输入利用方式" />
+          <view class="weui-textarea-counter">0/200</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">档案类型</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="daType" bindchange="" value="{{daTypeIndex}}" range="{{daTypes}}" range-key="name">
+            <view class="weui-select">
+              {{daTypes[daTypeIndex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="textarea-title">利用方式</view>
+          <textarea name="cdContent" class="weui-textarea" bindblur="" style="height: 3.3em" placeholder="请补充完整你的查档要求与线索（必输项）" />
+          <view class="weui-textarea-counter">0/200</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="textarea-title">附件信息</view>
+          <textarea name="fjContent" class="weui-textarea" bindblur="" disabled="true" auto-height="true"/>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">身份证正反面上传</view>
+              <view class="weui-uploader__info">{{IDCards.length}}/2</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files">
+                <block wx:for="{{IDCards}}" wx:key="*this">
+                  <view class="weui-uploader__file" bindtap="previewIDCard" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+              </view>
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseIDCards"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">其它有效证件上传</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files">
+                <block wx:for="{{fj}}" wx:key="*this">
+                  <view class="weui-uploader__file" bindtap="previewFJ" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+              </view>
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseFj"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" form-type="submit">提交</button>
+    </view>
+
+  </form>
+</view>

@@ -16,14 +16,21 @@ Page({
     })
   },
   getNoticeList: function() { // 获取信息公告的列表数据
+    let that = this
+    wx.request({
+      url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxPublic!getPublicSy.json', 
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+        that.setData({
+          noticeList: res.data
+        })
+      }
+    })
+
     this.setData({
-      noticeList: [
-        { id: '1', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-        { id: '2', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-        { id: '3', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-        { id: '4', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-        { id: '5', publish_title: '信息公告测试数据', publish_date: '2018-09-06' }
-      ],
       consultList: [
         { id: '1', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
         { id: '2', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },

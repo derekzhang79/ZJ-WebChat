@@ -12,7 +12,8 @@
     "pages/noticeDetail/noticeDetail",
     "pages/consultList/consultList",
     "pages/consultDetail/consultDetail",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/mine/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

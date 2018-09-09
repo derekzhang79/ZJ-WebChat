@@ -49,16 +49,18 @@
       <image class="notice-bg" src="/images/index/notice-bg.png"></image>
       <text class="notice-title">信息公告</text>
     </view>
-    <view class="notice-list">
-      <navigator class="item" wx:for="{{noticeList}}" wx:key="item.id" url="../noticeDetail/noticeDetail?id={{item.id}}">
-        <text class="title">{{item.publish_title}}</text>
-        <text class="date">{{item.publish_date}}</text>
+    <view class="weui-panel__bd">
+      <navigator class="weui-media-box weui-media-box_text" wx:for="{{noticeList}}" wx:key="item.id" url="../noticeDetail/noticeDetail?id={{item.id}}">
+        <view class="weui-media-box__title weui-media-box__title_in-text">{{item.publish_title}}</view>
+        <view class="weui-media-box__desc">{{item.publish_date}}</view>
       </navigator>
     </view>
-    <navigator class="notice-more" url="../noticeList/noticeList">
-      <text class="more">查看更多</text>
-      <text class="more-icon">></text>
-    </navigator>
+    <view class="weui-panel__ft">
+      <navigator class="weui-cell weui-cell_access weui-cell_link"  url="../noticeList/noticeList">
+          <view class="weui-cell__bd">查看更多</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </view>
   </view>
 
   <view class="section notice-box" style="margin-bottom: 0;">
@@ -66,16 +68,18 @@
       <image class="notice-bg" src="/images/index/consult-bg.png"></image>
       <text class="notice-title">咨询中心</text>
     </view>
-    <view class="notice-list">
-      <navigator class="item" wx:for="{{consultList}}" wx:key="item.id" url="../consultDetail/consultDetail?id={{item.id}}">
-        <text class="title">{{item.consultation_title}}</text>
-        <text class="date">{{item.create_date}}</text>
+    <view class="weui-panel__bd">
+      <navigator class="weui-media-box weui-media-box_text" wx:for="{{consultList}}" wx:key="item.id" url="../noticeDetail/noticeDetail?id={{item.id}}">
+        <view class="weui-media-box__title weui-media-box__title_in-text">{{item.consultation_title}}</view>
+        <view class="weui-media-box__desc">{{item.create_date}}</view>
       </navigator>
     </view>
-    <navigator class="notice-more" url="../consultList/consultList">
-      <text class="more">查看更多</text>
-      <text class="more-icon">></text>
-    </navigator>
+    <view class="weui-panel__ft">
+      <navigator class="weui-cell weui-cell_access weui-cell_link"  url="../noticeList/noticeList">
+          <view class="weui-cell__bd">查看更多</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </view>
   </view>
 
 </view>

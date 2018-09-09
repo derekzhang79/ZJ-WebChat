@@ -1,0 +1,12 @@
+/* pages/mine/login/login.wxss */
+.page__hd {
+  padding: 40rpx;
+  text-align: center;
+}
+.logo {
+  width: 302rpx;
+  height: 170rpx;
+}
+.weui-cells {
+  background-color: #fafafa;
+}

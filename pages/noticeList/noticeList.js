@@ -5,43 +5,56 @@ Page({
    * 页面的初始数据
    */
   data: {
-    noticeList: [],
+    list: [],
+    page: 1, // 第1页
+    limit: 10, // 一页默认10条数据
     loading: false,
-    oadingComplete: false
+    loadingText: '正在加载中...'
   },
-  getNoticeList: function() {
-    let data = [
-      { id: '1', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '2', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '3', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '4', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '5', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '6', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '7', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '8', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '9', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '10', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '11', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '12', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '13', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '14', publish_title: '信息公告测试数据', publish_date: '2018-09-06' },
-      { id: '15', publish_title: '信息公告测试数据', publish_date: '2018-09-06' }
-    ]
-    let noticeList = []
-    noticeList = this.data.noticeList.concat(data)
-    this.setData({
-      loading: true,
-      noticeList: noticeList
+  
+  getList: function() {
+    let that = this
+    wx.request({
+      url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxPublic!getPublicFy.json',
+      data: {
+        pageindex: that.data.page,
+        callbackcount: that.data.limit
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+        if (res.data.length !== 0) {
+          let newList = []
+          newList = that.data.list.concat(res.data)
+          that.setData({
+            loading: false,
+            list: newList
+          })
+        } else {
+          that.setData({
+            loadingText: '我们是有底线的！'
+          })
+        }
+      }
     })
   },
-  getMore: function() {
-    setTimeout(this.getNoticeList,500)
+
+  getMore: function() { // 上拉加载更多
+    this.setData({
+      page: this.data.page + 1, // 页数增加一页
+      loading: true, // 显示加载提示
+      loadingText: '正在加载中...',
+    })
+    this.getList()
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getNoticeList()
+    this.getList()
   },
 
   /**

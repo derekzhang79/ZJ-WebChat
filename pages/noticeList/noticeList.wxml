@@ -1,11 +1,10 @@
 <!--pages/noticeList/noticeList.wxml-->
 <scroll-view style='height: 100%;' scroll-y="true" bindscrolltolower="getMore">
-  <view class="notice-list">
-    <navigator class="item" wx:for="{{noticeList}}" wx:key="item.id" url="../noticeDetail/noticeDetail?id={{item.id}}">
-      <text class="title">{{item.publish_title}}</text>
-      <text class="date">{{item.publish_date}}</text>
+ <view class="weui-panel__bd">
+    <navigator class="weui-media-box weui-media-box_text" wx:for="{{list}}" wx:key="item.id" url="../noticeDetail/noticeDetail?id={{item.id}}">
+      <view class="weui-media-box__title weui-media-box__title_in-text">{{item.publish_title}}</view>
+      <view class="weui-media-box__desc">{{item.publish_date}}</view>
     </navigator>
   </view>
-  <view class="loading" hidden="{{!loading}}">正在载入更多...</view>
-  <view class="loading complete" hidden="{{!oadingComplete}}">已加载全部</view>
+  <view class="loading" hidden="{{!loading}}">{{loadingText}}</view>
 </scroll-view>

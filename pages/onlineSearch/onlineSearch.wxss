@@ -1,1 +1,8 @@
 /* pages/onlineSearch/onlineSearch.wxss */
+.container {
+  padding: 25rpx;
+}
+
+.textarea-title {
+  margin-bottom: 10rpx;
+}

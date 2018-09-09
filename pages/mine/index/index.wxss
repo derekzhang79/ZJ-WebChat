@@ -1,1 +1,22 @@
 /* pages/mine/index/index.wxss */
+.login-box {
+  display: flex;
+  height: 238rpx;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 28rpx;
+}
+.login-box .user-photo {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 0 35rpx;
+}
+.login-box .login {
+  font-size: 34rpx;
+}
+.weui-cell__hd .leftIcon {
+  margin-right: 5px;
+  vertical-align: middle;
+  width:20px; 
+  height: 20px;
+}

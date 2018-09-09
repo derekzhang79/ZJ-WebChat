@@ -1,4 +1,7 @@
 /**index.wxss**/
+.container {
+  padding: 25rpx;
+}
 .section {
   background: #fff;
   margin-bottom: 20rpx;
@@ -102,12 +105,10 @@
   padding: 0 30rpx;
 }
 .notice-list .item {
-  display: flex;
   border-bottom: 1px solid #cdcde0;
-  line-height: 90rpx;
+  padding: 
 }
 .notice-list .title {
-  flex: 1;
   font-size: 30rpx;
   color: #333;
 }
@@ -115,7 +116,6 @@
   width: 190rpx;
   font-size: 28rpx;
   color: #999;
-  text-align: right;
 }
 .notice-more {
   padding: 20rpx 30rpx;
