@@ -10,8 +10,12 @@
   width: 128rpx;
   height: 128rpx;
   margin: 0 35rpx;
+  border-radius: 50%;
 }
 .login-box .login {
+  font-size: 34rpx;
+}
+.login-box .user-name {
   font-size: 34rpx;
 }
 .weui-cell__hd .leftIcon {

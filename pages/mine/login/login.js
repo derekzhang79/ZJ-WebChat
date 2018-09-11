@@ -1,5 +1,6 @@
 // pages/mine/login/login.js
-
+//获取应用实例
+const app = getApp()
 Page({
 
   /**
@@ -9,11 +10,14 @@ Page({
     mobile: '',//手机号
     code: '',//验证码
     iscode: null,//用于存放验证码接口里获取到的code
+    codeName: '获取验证码',
+    openid: '',
+    session_key: ''
   },
   //获取input输入框的值
   getPhoneValue: function (e) {
     this.setData({
-      phone: e.detail.value
+      mobile: e.detail.value
     })
   },
   getCodeValue: function (e) {
@@ -22,10 +26,10 @@ Page({
     })
   },
   getCode: function () {
-    var a = this.data.phone;
+    var a = this.data.mobile;
     var _this = this;
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
-    if (this.data.phone == "") {
+    if (this.data.mobile == "") {
       wx.showToast({
         title: '手机号不能为空',
         icon: 'none',
@@ -33,14 +37,14 @@ Page({
       })
       return false;
     }  else {
+      let that = this
       wx.request({
-        data: {},
-        'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!sendCode?mobile=16621069571',
+        'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!sendCode',
+        data: {
+          mobile: that.data.mobile
+        },
         success(res) {
-          console.log(res, "mytestcode");
-          _this.setData({
-            // iscode: res.data.data
-          })
+          console.log(res);
           var num = 61;
           var timer = setInterval(function () {
             num--;
@@ -75,21 +79,14 @@ Page({
   //提交表单信息
   showTopTips: function () {
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
-    if (this.data.phone == "") {
+    if (this.data.mobile == "") {
       wx.showToast({
         title: '手机号不能为空',
         icon: 'none',
         duration: 1000
       })
       return false;
-    } else if (!myreg.test(this.data.phone)) {
-      wx.showToast({
-        title: '请输入正确的手机号',
-        icon: 'none',
-        duration: 1000
-      })
-      return false;
-    }
+    } 
     if (this.data.code == "") {
       wx.showToast({
         title: '验证码不能为空',
@@ -97,32 +94,45 @@ Page({
         duration: 1000
       })
       return false;
-    } else if (this.data.code != this.data.iscode) {
-      wx.showToast({
-        title: '验证码输入错误，请重新输入',
-        icon: 'none',
-        duration: 1000
-      })
-      return false;
     } else {
-      wx.setStorageSync('phone', this.data.phone);
-      // wx.redirectTo({
-      //   url: '../add/add',
-      // })
+      wx.setStorageSync('phone', this.data.mobile);
+      let that = this
       wx.login({
-        success: function (data) {
-          console.log(data.code, "mycode")
+        success: function (res) {
+          let js_code = res.code
           // 获取openid
           wx.request({
-            url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!getXcxzhAndcount?mobile=&JSCODE=&checkcode=',
-            header: { "Content-Type": "application/x-www-form-urlencoded" },
+            url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!getXcxzhAndcount',
+            data: {
+              mobile: that.data.mobile,
+              JSCODE: js_code,
+              checkcode: that.data.code
+            },
             method: "get",
             success: function (res) {
-              console.log(res, "opind66")
-              that.setData({
-                openid: res.data.openid,
-                session_key: res.data.session_key,
-              })
+              console.log(res.data.code)
+              if (res.data.code === '3') {
+                wx.showToast({
+                  title: res.data.message,
+                  icon: 'none',
+                  duration: 1000
+                })
+                app.globalData.phone = that.data.mobile
+                wx.navigateBack({
+                  
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.message,
+                  icon: 'none',
+                  duration: 1000
+                })
+              }
+              
+              // that.setData({
+              // openid: res.data.openid,
+              //  session_key: res.data.session_key,
+              //})
             }
           })
         }

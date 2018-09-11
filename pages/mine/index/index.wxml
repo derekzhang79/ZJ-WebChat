@@ -1,9 +1,9 @@
 <!--pages/mine/index/index.wxml-->
 <view class="container">
   <view class="login-box">
-    <image class="user-photo" src='/images/mine/user-default.png'></image>
-    <navigator class="login" url="../login/login">登录/绑定</navigator>
-    <text class="user-name">{{}}</text>
+    <image class="user-photo" src="{{userInfo.avatarUrl}}"></image>
+    <navigator class="login" url="../login/login" wx:if="{{!isLogin}}">登录/绑定</navigator>
+    <text class="user-name">{{phone}}</text>
   </view>
 
   <view class="weui-cells weui-cells_after-title">
