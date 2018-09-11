@@ -8,7 +8,7 @@
             <view class="weui-label">证件类型</view>
         </view>
         <view class="weui-cell__bd">
-          <picker name="zjType" bindchange="bindZjTypeChange" value="{{zjTypeIndex}}" range="{{zjTypes}}" range-key="name">
+          <picker name="zjType" bindchange="bindZjTypeChange" value="{{zjTypes[zjTypeIndex].value}}" range="{{zjTypes}}" range-key="name">
             <view class="weui-select">
               {{zjTypes[zjTypeIndex].name}}
             </view>
@@ -42,7 +42,7 @@
           <view class="weui-label">所属地区</view>
         </view>
         <view class="weui-cell__bd">
-          <picker name="sqArea" bindchange="" value="{{sqAreaIndex}}" range="{{sqAreas}}" range-key="name">
+          <picker name="sqArea" bindchange="" value="{{sqAreas[sqAreaIndex].value}}" range="{{sqAreas}}" range-key="name">
             <view class="weui-select">
               {{sqAreas[sqAreaIndex].name}}
             </view>
@@ -76,7 +76,7 @@
           <view class="weui-label">利用目的</view>
         </view>
         <view class="weui-cell__bd">
-          <picker name="lyObjec" bindchange="" value="{{lyObjecIndex}}" range="{{lyObjecs}}" range-key="name">
+          <picker name="lyObjec" bindchange="" value="{{lyObjecs[lyObjecIndex].value}}" range="{{lyObjecs}}" range-key="name">
             <view class="weui-select">
               {{lyObjecs[lyObjecIndex].name}}
             </view>
@@ -109,7 +109,7 @@
           <view class="weui-label">档案类型</view>
         </view>
         <view class="weui-cell__bd">
-          <picker name="daType" bindchange="" value="{{daTypeIndex}}" range="{{daTypes}}" range-key="name">
+          <picker name="daType" bindchange="" value="{{daTypes[daTypeIndex].value}}" range="{{daTypes}}" range-key="name">
             <view class="weui-select">
               {{daTypes[daTypeIndex].name}}
             </view>
