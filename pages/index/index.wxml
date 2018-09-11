@@ -75,7 +75,7 @@
       </navigator>
     </view>
     <view class="weui-panel__ft">
-      <navigator class="weui-cell weui-cell_access weui-cell_link"  url="../noticeList/noticeList">
+      <navigator class="weui-cell weui-cell_access weui-cell_link"  url="../consultList/consultList">
           <view class="weui-cell__bd">查看更多</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>

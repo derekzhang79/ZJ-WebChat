@@ -30,14 +30,29 @@ Page({
       }
     })
 
-    this.setData({
-      consultList: [
-        { id: '1', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
-        { id: '2', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
-        { id: '3', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
-        { id: '4', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
-        { id: '5', consultation_title: '信息公告测试数据', create_date: '2018-09-06' }
-      ]
+    // this.setData({
+    //   consultList: [
+    //     { id: '1', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
+    //     { id: '2', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
+    //     { id: '3', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
+    //     { id: '4', consultation_title: '信息公告测试数据', create_date: '2018-09-06' },
+    //     { id: '5', consultation_title: '信息公告测试数据', create_date: '2018-09-06' }
+    //   ]
+    // })
+  },
+  getConsultList: function () { // 获取信息公告的列表数据
+    let that = this
+    wx.request({
+      url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxZxzx!getZxzxSy.json',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+        that.setData({
+          consultList: res.data
+        })
+      }
     })
   },
   onLoad: function () {
@@ -66,5 +81,6 @@ Page({
     }
 
     this.getNoticeList()
+    this.getConsultList()
   }
 })

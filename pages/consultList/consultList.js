@@ -15,7 +15,7 @@ Page({
   getList: function () {
     let that = this
     wx.request({
-      url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxPublic!getPublicFy.json',
+      url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxZxzx!getZxzxFy.json?pageindex=1&callbackcount=10',
       data: {
         pageindex: that.data.page,
         callbackcount: that.data.limit
