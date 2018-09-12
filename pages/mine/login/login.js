@@ -44,6 +44,9 @@ Page({
         data: {
           mobile: that.data.mobile
         },
+        header: {
+          'Cookie': wx.getStorageSync('sessionid')
+        },
         success(res) {
           console.log(res);
           var num = 61;
@@ -98,47 +101,43 @@ Page({
     } else {
       wx.setStorageSync('phone', this.data.mobile);
       let that = this
-      wx.login({
+      wx.request({
+        url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!getXcxzhAndcount',
+        data: {
+          mobile: that.data.mobile,
+          JSCODE: app.globalData.js_code,
+          checkcode: that.data.code
+        },
+        header: {
+          'Cookie': wx.getStorageSync('sessionid')
+        },
+        method: "get",
         success: function (res) {
-          let js_code = res.code
-          // 获取openid
-          wx.request({
-            url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!getXcxzhAndcount',
-            data: {
-              mobile: that.data.mobile,
-              JSCODE: js_code,
-              checkcode: that.data.code
-            },
-            method: "get",
-            success: function (res) {
-              console.log(res.data.code)
-              if (res.data.code === '3') {
-                wx.showToast({
-                  title: res.data.message,
-                  icon: 'none',
-                  duration: 1000
-                })
-                app.globalData.phone = that.data.mobile
-                wx.navigateBack({
-                  
-                })
-              } else {
-                wx.showToast({
-                  title: res.data.message,
-                  icon: 'none',
-                  duration: 1000
-                })
-              }
-              
-              // that.setData({
-              // openid: res.data.openid,
-              //  session_key: res.data.session_key,
-              //})
-            }
-          })
+          console.log(res.data.code)
+          if (res.data.code === '3') {
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none',
+              duration: 1000
+            })
+            app.globalData.phone = that.data.mobile
+            wx.navigateBack({
+
+            })
+          } else {
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none',
+              duration: 1000
+            })
+          }
+
+          // that.setData({
+          // openid: res.data.openid,
+          //  session_key: res.data.session_key,
+          //})
         }
       })
-      
     }
     
   },
