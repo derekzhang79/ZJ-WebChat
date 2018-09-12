@@ -9,7 +9,23 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        if (res.code) {
+          this.globalData.js_code = res.code
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          wx.request({
+            'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!sendSession',
+            data: {
+              JSCODE: res.code
+            },
+            success(res) {
+              if (res.data) {
+                console.log(res.data)
+                wx.setStorageSync('sessionid', res.data.sessionid)
+                wx.setStorageSync('userid', res.data.userid)
+              }  
+            }
+          })
+        }
       }
     })
     // 获取用户信息
@@ -39,6 +55,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    phone: ''
+    phone: '',
+    js_code: ''
   }
 })
