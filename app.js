@@ -20,7 +20,7 @@ App({
             success(res) {
               if (res.data) {
                 console.log(res.data)
-                wx.setStorageSync('sessionid', res.data.sessionid)
+                wx.setStorageSync('sessionid', 'JSESSIONID=' + res.data.sessionid)
                 wx.setStorageSync('userid', res.data.userid)
               }  
             }
