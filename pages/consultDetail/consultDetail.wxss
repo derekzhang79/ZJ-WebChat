@@ -1,1 +1,47 @@
 /* pages/consultDetail/consultDetail.wxss */
+.zxzx-main{
+  margin:0 28rpx;
+}
+.zxdf-title{
+  height: 80rpx;
+}
+.zxdf{
+  padding-left:39px;
+}
+.zxdf-icon{
+  width: 42rpx;
+  height: 39rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right:22rpx;
+}
+.zxbt-title{
+  height: auto;
+  background: #ffffff;
+  margin:23rpx 0rpx 23rpx 0rpx;
+  border:1rpx solid #E0E0E3;
+  padding:20rpx 45rpx 20rpx 24rpx;
+}
+.textarea-title{
+  display: inline-block;
+}
+.zxnr{
+  height: auto;
+  background: #ffffff;
+  border:1rpx solid #E0E0E3;
+  padding:20rpx 45rpx 20rpx 24rpx;
+}
+.weui-cell__bd,.textarea-title,.weui-label{
+  margin-right:35rpx;
+}
+.dfnr{
+  background: #ffffff;
+  padding:20rpx 45rpx 150rpx 24rpx;
+  border:1rpx solid #E0E0E3;
+}
+.dfddag{
+  width:415rpx;
+}
+.content-unit{
+  height: auto;
+}

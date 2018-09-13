@@ -1,20 +1,29 @@
 /* pages/noticeDetail/noticeDetail.wxss */
+.detail-content{
+  padding:0 30rpx 200rpx;
+}
 .content-title{
   font-size: 48rpx;
   color: #000000;
+  display: block;
+  margin:40rpx 0 23rpx 0;
 }
 .content-date{
   font-size: 30rpx;
   color: #888888;
+  display: block
 }
 .content-unit{
   font-size:30rpx;
   color: #576b95;
+  display: block;
 }
 .content-p{
   font-size: 34rpx;
   color: #111111;
+  line-height: 24rpx;
 }
 .content-img{
-  margin:41rpx 0
+  width: 100%;
+  height: auto;
 }

@@ -2,50 +2,36 @@
 <view class="container">
   <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>  
   <form class="page__bd" bindsubmit="formSubmit">
-    <view class='weui-cells'>
+    <view class='weui-cells zxdf-title'>
       <view class='weui-cells'>
-        <view class="weui-cell__bd">
-          <view class="textarea-title">咨询答复</view>
+        <view class="weui-cell__bd zxdf">
+          <image class="zxdf-icon" src="/images/detail/zxdf-icon.png"></image>                <view class="textarea-title">咨询答复</view>
         </view>
       </view>
     </view>
-    <view class="weui-cells">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">咨询标题</view>
-        </view>
-        <view class="weui-cell__bd">
-         <text class='content-unit'>{{consultationDetail.consultation_title}}</text>
-        </view>
+    <view class='zxzx-main'>
+    
+      <view class="zxbt-title">
+          <view class="textarea-title">咨询标题</view>
+            <text class='content-unit weui-cell__ft'>{{consultationDetail.consultation_title}}</text>
       </view>
-    </view>
-    <view class="weui-cells">
-    <view class="weui-cell">
-      <view class="weui-cell__bd">
-        <view class="textarea-title">咨询内容</view>
-        <text class='content-unit'>{{consultationDetail.consultation_content}}</text>
-      </view>
-    </view>
-    </view>
-    <view class="weui-cells">
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">答复的档案馆</view>
-      </view>
-      <view class="weui-cell__bd">
-        <text class='content-unit'>{{consultationDetail.archivename}}</text>
-      </view>
-    </view>
-      
-    </view>
-    <view class="weui-cells">
-      <view class="weui-cell">
-        <view class="weui-cell__bd">
-          <view class="textarea-title">答复内容</view>
-          <text class='content-unit'>{{consultationDetail.archive_content}}</text>
-        </view>
-      </view>
-    </view>
 
+      <view class="zxnr">
+            <view class="textarea-title">咨询内容</view>
+            <text class='content-unit weui-cell__ft'>{{consultationDetail.consultation_content}}</text>
+      </view>
+
+      <view class="zxbt-title">
+          <view class="weui-cell__bd textarea-title">答复的档案馆</view>
+          <text class='content-unit weui-cell__ft'>{{consultationDetail.archivename}}</text>
+      </view>
+
+
+      <view class="dfnr">
+        <view class="textarea-title textarea-title">答复内容</view>
+        <text class='content-unit weui-cell__ft dfnr-content'>{{consultationDetail.archive_content}}</text>
+      </view>
+
+    </view>
   </form>
 </view>

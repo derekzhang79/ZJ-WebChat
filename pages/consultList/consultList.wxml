@@ -1,7 +1,7 @@
 <!--pages/consultList/consultList.wxml-->
 <scroll-view style='height: 100%;' scroll-y="true" bindscrolltolower="getMore">
  <view class="weui-panel__bd">
-    <navigator class="weui-media-box weui-media-box_text" wx:for="{{list}}" wx:key="item.id" url="../noticeDetail/noticeDetail?id={{item.id}}">
+    <navigator class="weui-media-box weui-media-box_text" wx:for="{{list}}" wx:key="item.id" url="../consultDetail/consultDetail?id={{item.id}}">
       <view class="weui-media-box__title weui-media-box__title_in-text">{{item.consultation_title}}</view>
       <view class="weui-media-box__desc">{{item.create_date}}</view>
     </navigator>
