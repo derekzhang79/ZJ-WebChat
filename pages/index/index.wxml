@@ -69,7 +69,7 @@
       <text class="notice-title">咨询中心</text>
     </view>
     <view class="weui-panel__bd">
-      <navigator class="weui-media-box weui-media-box_text" wx:for="{{consultList}}" wx:key="item.id" url="../noticeDetail/noticeDetail?id={{item.id}}">
+      <navigator class="weui-media-box weui-media-box_text" wx:for="{{consultList}}" wx:key="item.id" url="../consultDetail/consultDetail?id={{item.id}}">
         <view class="weui-media-box__title weui-media-box__title_in-text">{{item.consultation_title}}</view>
         <view class="weui-media-box__desc">{{item.create_date}}</view>
       </navigator>

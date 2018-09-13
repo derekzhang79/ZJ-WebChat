@@ -1,2 +1,8 @@
 <!--pages/noticeDetail/noticeDetail.wxml-->
-<text>pages/noticeDetail/noticeDetail.wxml</text>
+<view class='detail-content'>
+  <text class='content-title'>{{noticeDetail.publish_title}}</text>
+  <text class='content-date'>{{noticeDetail.publish_date}}</text>
+  <text class='content-unit'>{{noticeDetail.publish_org_name}}</text>
+  <image class='content-img' src="{{noticeDetail.picUrl}}"></image>
+  <text class='content-p'>{{noticeDetail.publish_content}}</text>
+</view>

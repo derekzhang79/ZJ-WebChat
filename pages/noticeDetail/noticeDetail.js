@@ -5,14 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    noticeDetail: {},
+    noticeId:""
+  },
+
+  getNoticeDetail: function () { // 获取信息公告的详情数据
+    let that = this
+    //console.log(that.data.noticeId, "mynoticeId");
+    wx.request({
+      url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxPublic!getPublicDetail?publicId='+that.data.noticeId,
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      method: 'GET',
+      success: function (res) {
+         that.setData({
+           noticeDetail: res.data
+         })
+        
+
+      }
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    //console.log(options.id,"myid");
+    this.setData({
+      noticeId: options.id
+    })
+    this.getNoticeDetail();
   },
 
   /**
