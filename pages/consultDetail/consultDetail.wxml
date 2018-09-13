@@ -10,7 +10,6 @@
       </view>
     </view>
     <view class='zxzx-main'>
-    
       <view class="zxbt-title">
           <view class="textarea-title">咨询标题</view>
             <text class='content-unit weui-cell__ft'>{{consultationDetail.consultation_title}}</text>

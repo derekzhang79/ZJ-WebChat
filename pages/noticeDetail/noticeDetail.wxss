@@ -1,6 +1,6 @@
 /* pages/noticeDetail/noticeDetail.wxss */
 .detail-content{
-  padding:0 30rpx 200rpx;
+  padding:0 30rpx 80rpx;
 }
 .content-title{
   font-size: 48rpx;
@@ -21,7 +21,6 @@
 .content-p{
   font-size: 34rpx;
   color: #111111;
-  line-height: 24rpx;
 }
 .content-img{
   width: 100%;
