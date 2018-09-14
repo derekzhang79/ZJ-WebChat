@@ -19,15 +19,15 @@ App({
             },
             success(res) {
               if (res.data) {
-                console.log(res.data)
                 wx.setStorageSync('sessionid', 'JSESSIONID=' + res.data.sessionid)
                 wx.setStorageSync('userid', res.data.userid)
-              }  
+              }
             }
           })
         }
       }
     })
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -55,7 +55,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    phone: '',
     js_code: ''
   }
 })

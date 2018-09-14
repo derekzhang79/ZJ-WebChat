@@ -13,7 +13,11 @@
     "pages/consultList/consultList",
     "pages/consultDetail/consultDetail",
     "pages/login/login",
-    "pages/mine/login/login"
+    "pages/mine/login/login",
+    "pages/onlineSearchSec",
+    "pages/onlineSearchSec/onlineSearchSec",
+    "pages/onlineSearchThi/onlineSearchThi",
+    "pages/onlineSearchFour/onlineSearchFour"
   ],
   "window": {
     "backgroundTextStyle": "light",

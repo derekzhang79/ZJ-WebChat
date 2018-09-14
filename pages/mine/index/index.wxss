@@ -17,6 +17,7 @@
 }
 .login-box .user-name {
   font-size: 34rpx;
+  color: rgb(0, 132, 255);
 }
 .weui-cell__hd .leftIcon {
   margin-right: 5px;

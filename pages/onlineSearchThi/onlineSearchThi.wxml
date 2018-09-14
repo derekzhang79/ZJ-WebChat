@@ -1,0 +1,24 @@
+<!--pages/onlineSearchThi/onlineSearchThi.wxml-->
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">有效证件上传</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files">
+                <block wx:for="{{fj}}" wx:key="*this">
+                  <view class="weui-uploader__file" bindtap="previewFJ" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+              </view>
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseFj"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>

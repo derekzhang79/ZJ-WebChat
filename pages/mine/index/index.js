@@ -13,6 +13,28 @@ Page({
     phone: ''
   },
 
+  getPhone: function () {
+    let that = this
+    wx.request({
+      'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!getPhone',
+      data: {
+        user_id: wx.getStorageSync('userid')
+      },
+      header: {
+        'Cookie': wx.getStorageSync('sessionid')
+      },
+      success(res) {
+        if (res.data.code === '1') {
+          that.setData({
+            isLogin: true,
+            phone: res.data.phone
+          })
+        } else {
+          return
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -53,11 +75,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (app.globalData.phone) {
-      this.setData({
-        isLogin: true,
-        phone: app.globalData.phone
-      })
+    if (this.data.phone == '' || this.data.phone == null) {
+      this.getPhone()
     }
   },
 

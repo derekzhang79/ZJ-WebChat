@@ -8,12 +8,11 @@ Page({
    */
   
   data: {
-    mobile: '',//手机号
-    code: '',//验证码
-    iscode: null,//用于存放验证码接口里获取到的code
+    mobile: '', // 手机号
+    code: '', // 验证码
+    iscode: null, // 用于存放验证码接口里获取到的code
     codeName: '获取验证码',
-    openid: '',
-    session_key: ''
+    isAgree: false // 用于判断是否同意
   },
   //获取input输入框的值
   getPhoneValue: function (e) {
@@ -34,11 +33,14 @@ Page({
       wx.showToast({
         title: '手机号不能为空',
         icon: 'none',
-        duration: 1000
+        duration: 1500
       })
       return false;
     }  else {
       let that = this
+      that.setData({
+        disabled: true
+      })
       wx.request({
         'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!sendCode',
         data: {
@@ -48,29 +50,24 @@ Page({
           'Cookie': wx.getStorageSync('sessionid')
         },
         success(res) {
-          console.log(res);
-          var num = 61;
-          var timer = setInterval(function () {
+          let num = 61;
+          let timer = setInterval(function () {
             num--;
             if (num <= 0) {
               clearInterval(timer);
-              _this.setData({
-                codename: '重新发送',
+              that.setData({
+                codeName: '重新发送',
                 disabled: false
               })
-
             } else {
-              _this.setData({
-                codename: num + "s"
+              that.setData({
+                codeName: num + "s"
               })
             }
-          }, 1000)
+          }, 1500)
         }
       })
-
     }
-
-
   },
   //获取验证码
   getVerificationCode() {
@@ -81,7 +78,7 @@ Page({
     })
   },
   //提交表单信息
-  showTopTips: function () {
+  handleSubmit: function () {
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
     if (this.data.mobile == "") {
       wx.showToast({
@@ -113,45 +110,32 @@ Page({
         },
         method: "get",
         success: function (res) {
-          console.log(res.data.code)
+          wx.setStorageSync('userid', res.data.userid)
           if (res.data.code === '3') {
             wx.showToast({
               title: res.data.message,
               icon: 'none',
-              duration: 1000
+              duration: 2000
             })
-            app.globalData.phone = that.data.mobile
-            wx.navigateBack({
+            setTimeout(function(){
+              wx.navigateBack({
 
-            })
+              })
+            }, 2000)
+            
           } else {
             wx.showToast({
               title: res.data.message,
               icon: 'none',
-              duration: 1000
+              duration: 2000
             })
           }
-
-          // that.setData({
-          // openid: res.data.openid,
-          //  session_key: res.data.session_key,
-          //})
         }
       })
     }
     
   },
   
-
-
-
-
-
-
-
-
-
-
   bindAgreeChange: function (e) {
     this.setData({
       isAgree: !!e.detail.value.length

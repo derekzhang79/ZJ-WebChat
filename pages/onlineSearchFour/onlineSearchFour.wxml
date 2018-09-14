@@ -1,0 +1,4 @@
+<!--pages/onlineSearchFour/onlineSearchFour.wxml-->
+<view class="box">
+  <button type="primary" bindtap="submit"> 确认无误，提交查档</button>
+</view>

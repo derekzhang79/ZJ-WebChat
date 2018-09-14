@@ -1,0 +1,4 @@
+/* pages/onlineSearchFour/onlineSearchFour.wxss */
+.box {
+  padding: 50% 25rpx 0;
+}

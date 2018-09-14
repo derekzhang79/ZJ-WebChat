@@ -1,0 +1,42 @@
+<!--pages/onlineSearchSec/onlineSearchSec.wxml-->
+<view class="container">
+  <form class="page__bd" bindsubmit="formSubmit">
+    <view class="weui-cells__title">请选择档案馆级别</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__bd">
+          <picker name="userTargetArchives" bindchange="HouseLevelChange" value="{{HouseLevelIndex}}" range="{{HouseLevels}}" range-key="name">
+            <view class="weui-select">{{HouseLevels[HouseLevelIndex].name}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">请选择需要调档的档案馆</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__bd">
+          <picker name="userTargerArchivesid" bindchange="HouseListChange" value="{{HouseListIndex}}" range="{{HouseList}}" range-key="name">
+            <view class="weui-select">{{HouseList[HouseListIndex].name}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">选择利用方式</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__bd">
+          <picker name="utilizeMethod" bindchange="lyMethodChange" value="{{lyMethodIndex}}" range="{{lyMethods}}" range-key="lyfs_name">
+            <view class="weui-select">{{lyMethods[lyMethodIndex].lyfs_name}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" form-type="submit">下一步</button>
+    </view>
+    
+  </form>
+</view>
