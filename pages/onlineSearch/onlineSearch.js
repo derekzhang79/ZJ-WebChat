@@ -60,7 +60,11 @@ Page({
   },
 
   getUser: function () { // 根据userid获取用户的一些详细信息
-  let that = this
+    wx.showLoading({
+      title: '正在获取身份信息...',
+      mask: true
+    })
+    let that = this
     wx.request({
       'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!getUser',
       data: {
@@ -70,6 +74,7 @@ Page({
         'Cookie': wx.getStorageSync('sessionid')
       },
       success(res) {
+        wx.hideLoading()
         that.setData({
           userNumber: res.data.cardNo,
           userName: res.data.name,
@@ -77,9 +82,10 @@ Page({
         })
       },
       fail() {
+        wx.hideLoading()
         wx.showToast({
-          title: '基本信息请求失败，请刷新页面重新获取',
-          icon: 'none',
+          title: '基本信息请求失败，请返回页面重新获取',
+          icon: 'warn',
           duration: 1500
         })
       }
@@ -123,7 +129,7 @@ Page({
       success(res) {
         wx.showToast({
           title: res.data.message,
-          icon: 'none',
+          icon: 'success',
           duration: 1500
         })
         if (res.data.code === '1') {
@@ -137,7 +143,7 @@ Page({
       fail() {
         wx.showToast({
           title: '提交失败，请重新点击提交',
-          icon: 'none',
+          icon: 'warn',
           duration: 1500
         })
       }

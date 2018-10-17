@@ -12,7 +12,12 @@ Page({
     HouseListIndex: 0,
 
     lyMethods: [],
-    lyMethodIndex: 0
+    lyMethodIndex: 0,
+
+    adCode: '',
+    address: '',
+    admph: '',
+    district: ''
   },
 
   HouseLevelChange: function (e) {
@@ -37,6 +42,18 @@ Page({
     })
   },
 
+  bindKeyAdmph: function (e) {
+    this.setData({
+      admph: e.detail.value
+    })
+  },
+
+  bindKeyUserEmail: function (e) {
+    this.setData({
+      userEmail: e.detail.value
+    })
+  },
+
   getHouseLevel: function() { // 获取档案馆级别
     let that = this
     return new Promise(function (resolve, reject) {
@@ -56,7 +73,7 @@ Page({
           reject(res)
           wx.showToast({
             title: '获取档案馆列表失败，请刷新页面重新获取',
-            icon: 'none',
+            icon: 'warn',
             duration: 1500
           })
         }
@@ -85,7 +102,7 @@ Page({
           reject(res)
           wx.showToast({
             title: '获取档案馆列表失败，请刷新页面重新获取',
-            icon: 'none',
+            icon: 'warn',
             duration: 1500
           })
         }
@@ -112,7 +129,7 @@ Page({
         fail() {
           wx.showToast({
             title: '获取利用方式失败',
-            icon: 'none',
+            icon: 'warn',
             duration: 1500
           })
         }
@@ -123,6 +140,11 @@ Page({
   formSubmit: function (e) { // 表单提交
     e.detail.value.userTargerArchivesid = this.data.HouseList[this.data.HouseListIndex].daj_id
     e.detail.value.utilizeMethod = this.data.lyMethods[this.data.lyMethodIndex].lyfs_value
+    if (e.detail.value.utilizeMethod == '3' || e.detail.value.utilizeMethod == '5') {
+      e.detail.value.userAddress = this.data.address + this.data.admph
+      e.detail.value.townCode = this.data.adCode
+      e.detail.value.town = this.data.district
+    }
 
     wx.request({
       'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!getFormBase2',
@@ -134,13 +156,13 @@ Page({
       success(res) {
         wx.showToast({
           title: res.data.message,
-          icon: 'none',
+          icon: 'success',
           duration: 1500
         })
         if (res.data.code === '1') {
           setTimeout(function () {
             wx.navigateTo({
-              url: '../onlineSearchFour/onlineSearchFour'
+              url: '../onlineSearchThi/onlineSearchThi'
             })
           }, 2000)
         }
@@ -148,7 +170,7 @@ Page({
       fail() {
         wx.showToast({
           title: '提交失败，请重新点击提交',
-          icon: 'none',
+          icon: 'warn',
           duration: 1500
         })
       }

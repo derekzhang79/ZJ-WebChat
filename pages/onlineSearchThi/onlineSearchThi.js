@@ -26,22 +26,45 @@ Page({
         that.setData({
           fj: that.data.fj.concat(tempFilePaths)
         })
-        let successUp = 0; // 成功个数 
-        let failUp = 0; // 失败个数 
-        let length = tempFilePaths.length; // 总共个数 
-        let i = 0; // 第几个 
-        that.uploadDIY(res.tempFilePaths,successUp,failUp,i,length)
       }
     })
   },
-
+  deleteImage: function (e) {
+    var that = this;
+    var images = that.data.fj;
+    var index = e.currentTarget.dataset.index;//获取当前长按图片下标
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除此图片吗？',
+      success: function (res) {
+        if (res.confirm) {
+          images.splice(index, 1);
+        } else if (res.cancel) {
+          return false;
+        }
+        that.setData({
+          fj: images
+        });
+      }
+    })
+  },
+  handleUpload: function() {
+    let tempFilePaths = this.data.fj
+    let successUp = 0; // 成功个数 
+    let failUp = 0; // 失败个数 
+    let length = this.data.fj.length; // 总共个数 
+    let i = 0; // 第几个 
+    this.uploadDIY(tempFilePaths, successUp, failUp, i, length)
+  },
   uploadDIY: function(filePaths, successUp, failUp, i, length) {
     wx.uploadFile({
-      url: uploadUrl, 
+      url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!upload', 
       filePath: filePaths[i], 
-      name: 'fileData', 
-      formData: { 'pictureUid': owerId, 'pictureAid': albumId }, 
-      success: (resp) => { 
+      name: 'file',
+      header: {
+        'Cookie': wx.getStorageSync('sessionid')
+      }, 
+      success: (res) => { 
         successUp++
       }, 
       fail: (res) => { 
@@ -50,7 +73,17 @@ Page({
       complete: () => {
         i++
         if (i == length) { 
-          this.showToast('总共' + successUp + '张上传成功,' + failUp + '张上传失败！')
+          wx.showToast({
+            title: '总共' + successUp + '张上传成功,' + failUp + '张上传失败！',
+            icon: 'none',
+            duration: 1500
+          });
+          setTimeout(function(){
+            wx.navigateTo({
+              url: '../onlineSearchFour/onlineSearchFour'
+            })
+          },2000)
+          
         } else { 
           //递归调用uploadDIY函数
           this.uploadDIY(filePaths,successUp,failUp,i,length)

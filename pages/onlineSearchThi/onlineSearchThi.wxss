@@ -1,1 +1,5 @@
 /* pages/onlineSearchThi/onlineSearchThi.wxss */
+.subTitle {
+  font-size: 26rpx;
+  color: #999;
+}

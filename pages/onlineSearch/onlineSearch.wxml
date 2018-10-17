@@ -65,7 +65,7 @@
           <view class="weui-label">所属单位</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="userCompany" class="weui-input" placeholder="请输入单位名称(必输项)"/>
+          <input name="userCompany" class="weui-input" placeholder="请输入单位名称(必输项)" value="ces"/>
         </view>
       </view>
     </view>
@@ -104,7 +104,7 @@
       <view class="weui-cell">
         <view class="weui-cell__bd">
           <view class="textarea-title">查档内容</view>
-          <textarea name="borrowContent" class="weui-textarea" style="height: 3.3em" placeholder="请补充完整你的查档要求与线索（必输项）" />
+          <textarea name="borrowContent" class="weui-textarea" style="height: 3.3em" placeholder="请补充完整你的查档要求与线索（必输项）" value="测试" />
           <view class="weui-textarea-counter">0/200</view>
         </view>
       </view>

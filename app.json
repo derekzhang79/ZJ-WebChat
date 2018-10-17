@@ -14,10 +14,10 @@
     "pages/consultDetail/consultDetail",
     "pages/login/login",
     "pages/mine/login/login",
-    "pages/onlineSearchSec",
     "pages/onlineSearchSec/onlineSearchSec",
     "pages/onlineSearchThi/onlineSearchThi",
-    "pages/onlineSearchFour/onlineSearchFour"
+    "pages/onlineSearchFour/onlineSearchFour",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",

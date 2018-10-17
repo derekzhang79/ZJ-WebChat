@@ -18,7 +18,7 @@ Page({
       success(res) {
         wx.showToast({
           title: res.data.message,
-          icon: 'none',
+          icon: 'success',
           duration: 1500
         })
         if (res.data.code === '1') {
@@ -32,13 +32,18 @@ Page({
       fail() {
         wx.showToast({
           title: '提交失败，请重新点击提交',
-          icon: 'none',
+          icon: 'warn',
           duration: 1500
         })
       }
     })
   },
 
+  backHome: function() {
+    wx.switchTab({
+      url: '../index/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
