@@ -1,0 +1,44 @@
+<!--pages/publicList/publicList.wxml-->
+<scroll-view style='height: 100%;' scroll-y="true" bindscrolltolower="getMore">
+  <view class="container">
+    <view class="page__bd">
+      <view class="weui-form-preview" wx:for="{{list}}" wx:key="item.id">
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">责任者</view>
+            <view class="weui-form-preview__value">{{item.zrz}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">起始时间</view>
+            <view class="weui-form-preview__value">{{item.time}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">文号</view>
+            <view class="weui-form-preview__value">{{item.wh}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">题名</view>
+            <view class="weui-form-preview__value">{{item.title}}</view>
+          </view>
+        </view>
+        <view class="weui-form-preview__ft">
+          <navigator url="../onlineSearch/onlineSearch?archive_content={{item.title}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查档登记</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+  </view>
+
+  <view class="weui-loadmore" hidden="loading">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+
+  <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot" hidden="isBottom">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+  </view>
+
+</scroll-view>

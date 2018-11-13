@@ -1,0 +1,14 @@
+<!--pages/mine/express/express.wxml-->
+<view class="container">
+  <view class="weui-panel">
+    <view class="weui-panel__hd">物流信息</view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text" wx:for="{{list}}">
+        <view class="weui-media-box__desc">[{{item.location}}] {{item.context}}</view>
+        <view class="weui-media-box__info">
+          <view class="weui-media-box__info__meta">{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

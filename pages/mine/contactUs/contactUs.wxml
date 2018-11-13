@@ -1,0 +1,60 @@
+<!--pages/mine/contactUs/contactUs.wxml-->
+<view class="contactUsWrapper">
+  <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                    </view>
+                </view>
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  </view>
+  <scroll-view class="contactUsBox" scroll-y="true" bindscrolltolower="getMore" scroll-top="{{scrollTop}}">
+    <view class="weui-panel" wx:for="{{list}}" wx:key="item.id">
+      <view class="weui-panel__bd">
+          <view class="weui-media-box weui-media-box_small-appmsg">
+              <view class="weui-cells weui-cells_in-small-appmsg">
+                  <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                      <view class="weui-cell__hd"><image src="/images/mine/name.svg" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                      <view class="weui-cell__bd weui-cell_primary">
+                          <view>{{item.name}}</view>
+                      </view>
+                  </navigator>
+                  <navigator catchtap="handelTel" data-tel="{{item.org_mobile}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                      <view class="weui-cell__hd"><image src="/images/mine/tel.svg" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                      <view class="weui-cell__bd weui-cell_primary">
+                          <view>{{item.org_mobile}}</view>
+                      </view>
+                      <view class="weui-cell__ft">点击拨号</view>
+                  </navigator>
+                  <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                      <view class="weui-cell__hd"><image src="/images/mine/address.svg" style="width: 20px;height: 20px;margin-right: 5px" /></view>
+                      <view class="weui-cell__bd weui-cell_primary">
+                          <view>{{item.org_address}}</view>
+                      </view>
+                  </navigator>
+              </view>
+          </view>
+      </view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0}}">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+
+    <view class="weui-loadmore" hidden="loading">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+
+    <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot" hidden="isBottom">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
+  </scroll-view>
+</view>

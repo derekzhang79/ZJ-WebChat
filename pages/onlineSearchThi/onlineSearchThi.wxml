@@ -28,5 +28,6 @@
   </view>
 </view>
 <view class="weui-btn-area">
-  <button class="weui-btn" type="primary" bindtap="handleUpload" disabled="{{fj.length==0}}">确认上传</button>
+  <button class="weui-btn" type="primary" bindtap="handleUpload">确认上传</button>
+  <button class="weui-btn" bindtap="next">跳过</button>
 </view>

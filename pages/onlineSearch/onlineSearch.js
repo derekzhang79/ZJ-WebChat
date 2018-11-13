@@ -44,7 +44,9 @@ Page({
     daTypeIndex: 0,
 
     showTopTips: false,
-    errorMsg: '有错'
+    errorMsg: '有错',
+
+    borrowContent: ''
   },
 
   bindUtilizeChange: function (e) {
@@ -154,6 +156,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      borrowContent: options.archive_content 
+    })
     this.getUser()
   },
 

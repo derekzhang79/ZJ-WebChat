@@ -104,8 +104,7 @@
       <view class="weui-cell">
         <view class="weui-cell__bd">
           <view class="textarea-title">查档内容</view>
-          <textarea name="borrowContent" class="weui-textarea" style="height: 3.3em" placeholder="请补充完整你的查档要求与线索（必输项）" value="测试" />
-          <view class="weui-textarea-counter">0/200</view>
+          <textarea name="borrowContent" class="weui-textarea" placeholder="请补充完整你的查档要求与线索（必输项）" value="{{borrowContent}}" />
         </view>
       </view>
     </view>

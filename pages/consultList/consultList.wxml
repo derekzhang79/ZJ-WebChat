@@ -6,6 +6,5 @@
       <view class="weui-media-box__desc">{{item.create_date}}</view>
     </navigator>
   </view>
-  <view class="loading" hidden="{{!loading}}">正在载入更多...</view>
-  <view class="loading complete" hidden="{{!loadingComplete}}">已加载全部</view>
+  <view class="loading" hidden="{{!loading}}">{{loadingText}}</view>
 </scroll-view>

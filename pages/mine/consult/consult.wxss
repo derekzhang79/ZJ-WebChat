@@ -1,0 +1,13 @@
+/* pages/mine/consult/consult.wxss */
+.consult-list {
+  padding: 28rpx;
+}
+.list-item {
+  margin-bottom: 40rpx;
+}
+.panel-item {
+  background:#ffffff;
+  margin:23rpx 0rpx 23rpx 0rpx;
+  border:1rpx solid #E0E0E3;
+  padding:20rpx 45rpx 20rpx 24rpx;
+}

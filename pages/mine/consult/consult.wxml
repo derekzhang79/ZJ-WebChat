@@ -1,0 +1,38 @@
+<!--pages/mine/consult/consult.wxml-->
+<view class="container">
+  <view class="consult-list">
+    <view class="list-item" wx:for="{{list}}" wx:key="item.id">
+      <view class="panel-item">
+        <view class="textarea-title">咨询标题</view>
+        <text class='content-unit weui-cell__ft'>{{item.title}}</text>
+      </view>
+
+      <view class="panel-item">
+        <view class="textarea-title">咨询时间</view>
+        <text class='content-unit weui-cell__ft'>{{item.datetime}}</text>
+      </view>
+
+      <view class="panel-item">
+        <view class="textarea-title">咨询内容</view>
+        <text class='content-unit weui-cell__ft'>{{item.Content}}</text>
+      </view>
+
+      <view class="panel-item">
+        <view class="weui-cell__bd textarea-title">受理档案馆</view>
+        <text class='content-unit weui-cell__ft'>{{item.Content}}</text>
+      </view>
+
+      <view class="panel-item">
+        <view class="weui-cell__bd textarea-title">答复时间</view>
+        <text class='content-unit weui-cell__ft'>{{item.archive_time}}</text>
+      </view>
+
+      <view class="panel-item">
+        <view class="textarea-title textarea-title">答复内容</view>
+        <text class='content-unit weui-cell__ft dfnr-content'>{{item.archive_content}}</text>
+      </view>
+
+    </view>
+  </view>
+  
+</view>

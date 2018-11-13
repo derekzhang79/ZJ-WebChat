@@ -9,6 +9,7 @@ page {
   min-height: 100%;
   box-sizing: border-box;
   background: #efeff4;
+  padding-top: 1px;
 } 
 
 view,image,text,navigator {
@@ -59,4 +60,8 @@ button[type=primary] {
 
 .weui-select {  
   border-right:1rpx solid transparent;
+}
+
+.weui-form-preview {
+  margin-bottom:25px;
 }

@@ -1,0 +1,7 @@
+/* pages/mine/searchArchive/searchArchive.wxss */
+.tip {
+  padding-top: 40%;
+  text-align: center;
+  color: #bbb;
+  font-size: 40rpx;
+}

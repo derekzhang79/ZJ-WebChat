@@ -1,0 +1,16 @@
+/* pages/mine/contactUs/contactUs.wxss */
+.contactUsWrapper {
+  padding-top: 50px;
+  height: 100%;
+  background: #efeff4;
+}
+.contactUsBox {
+  height: 100%;
+}
+.weui-search-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}

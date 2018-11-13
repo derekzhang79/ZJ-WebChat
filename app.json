@@ -17,12 +17,19 @@
     "pages/onlineSearchSec/onlineSearchSec",
     "pages/onlineSearchThi/onlineSearchThi",
     "pages/onlineSearchFour/onlineSearchFour",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/mine/searchArchive/searchArchive",
+    "pages/mine/consult/consult",
+    "pages/mine/expressDetail/expressDetail",
+    "pages/mine/expressList/expressList",
+    "pages/publicList/publicList",
+    "pages/guideList/guideList",
+    "pages/mine/contactUs/contactUs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2395fd",
-    "navigationBarTitleText": "掌上查浙档",
+    "navigationBarTitleText": "掌上查档",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

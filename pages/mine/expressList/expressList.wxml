@@ -1,0 +1,27 @@
+<!--pages/mine/expressList/expressList.wxml-->
+<view class="container">
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0}}">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+  </view>
+  <view class="weui-form-preview" wx:for="{{list}}" wx:key="item.id">
+    <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">快递单号</view>
+            <view class="weui-form-preview__value_in-hd">{{item.mail_num_code}}</view>
+        </view>
+    </view>
+    <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">查档编号</view>
+          <view class="weui-form-preview__value">{{item.borrowno}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">档案馆提供的利用服务</view>
+            <view class="weui-form-preview__value">{{item.utilize_service_way}}</view>
+        </view>
+    </view>
+    <view class="weui-form-preview__ft">
+        <navigator url="../expressDetail/expressDetail?id={{item.kd_id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查看快递进度</navigator>
+    </view>
+  </view>
+</view>

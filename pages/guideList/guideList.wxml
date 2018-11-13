@@ -1,0 +1,60 @@
+<!--pages/guideList/guideList.wxml-->
+<scroll-view style='height: 100%;' scroll-y="true" bindscrolltolower="getMore">
+  <view class="container">
+    <view class="page__bd">
+      <view class="weui-form-preview" wx:for="{{list}}" wx:key="item.id">
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">档案名称</view>
+            <view class="weui-form-preview__value">{{item.archive_name}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">主管单位</view>
+            <view class="weui-form-preview__value">{{item.manager_unit}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">形成单位</view>
+            <view class="weui-form-preview__value">{{item.forming_unit}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">保存单位</view>
+            <view class="weui-form-preview__value">{{item.storage_unit}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">查档内容</view>
+            <view class="weui-form-preview__value">{{item.archive_content}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">查询地点</view>
+            <view class="weui-form-preview__value">{{item.consulting_address}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">查询电话</view>
+            <view class="weui-form-preview__value">{{item.telephone}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">可否查阅</view>
+            <view class="weui-form-preview__value">{{item.borrow_flag}}</view>
+          </view>
+        </view>
+        <view class="weui-form-preview__ft">
+          <navigator url="../onlineSearch/onlineSearch?archive_content={{item.archive_content}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查档登记</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+  </view>
+
+  <view class="weui-loadmore" hidden="loading">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+
+  <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot" hidden="isBottom">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+  </view>
+
+</scroll-view>

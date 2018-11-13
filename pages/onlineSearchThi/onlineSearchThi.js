@@ -56,6 +56,11 @@ Page({
     let i = 0; // 第几个 
     this.uploadDIY(tempFilePaths, successUp, failUp, i, length)
   },
+  next: function() {
+    wx.navigateTo({
+      url: '../onlineSearchFour/onlineSearchFour'
+    })
+  },
   uploadDIY: function(filePaths, successUp, failUp, i, length) {
     wx.uploadFile({
       url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!upload', 

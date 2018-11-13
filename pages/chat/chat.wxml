@@ -1,2 +1,62 @@
 <!--pages/chat/chat.wxml-->
-<text>该功能正在建设中...</text>
+<view class="container" style="padding: 20rpx 0;">
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view> 
+  <form class="page__bd" bindsubmit="formSubmit">
+    <view class="weui-cells__title">咨询标题</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input name="consultationTitle" class="weui-input" placeholder="请输入要咨询的标题（必输项）"/>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">是否公开</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">公开</view>
+        <view class="weui-cell__ft">
+            <switch checked bindchange="switchChange" />
+        </view>
+      </view>
+      
+    </view>
+
+    <view class="weui-cells__title">请选择档案馆级别</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__bd">
+          <picker bindchange="HouseLevelChange" value="{{HouseLevelIndex}}" range="{{HouseLevels}}" range-key="name">
+            <view class="weui-select">{{HouseLevels[HouseLevelIndex].name}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">请选择需要调档的档案馆</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__bd">
+          <picker bindchange="HouseListChange" value="{{HouseListIndex}}" range="{{HouseList}}" range-key="name">
+            <view class="weui-select">{{HouseList[HouseListIndex].name}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">咨询内容</view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+            <view class="weui-cell__bd">
+                <textarea name="consultationContent" class="weui-textarea" placeholder="请输入想咨询的具体内容（必输项）" style="height: 3.3em" />
+            </view>
+        </view>
+    </view>
+
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" form-type="submit">提交</button>
+    </view>
+    
+  </form>
+</view>
