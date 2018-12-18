@@ -14,12 +14,13 @@
 
       <view class="panel-item">
         <view class="textarea-title">咨询内容</view>
-        <text class='content-unit weui-cell__ft'>{{item.Content}}</text>
+        <text class='content-unit weui-cell__ft'>{{item.content}}</text>
       </view>
 
       <view class="panel-item">
         <view class="weui-cell__bd textarea-title">受理档案馆</view>
-        <text class='content-unit weui-cell__ft'>{{item.Content}}</text>
+        <text class='content-unit weui-cell__ft'>{{item.archive_name
+}}</text>
       </view>
 
       <view class="panel-item">

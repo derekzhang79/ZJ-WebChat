@@ -13,6 +13,37 @@ Page({
     phone: ''
   },
 
+  getUser: function () { // 根据userid获取用户的一些详细信息
+    wx.showLoading({
+      title: '正在获取身份信息...',
+      mask: true
+    })
+    let that = this
+    wx.request({
+      'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!getUser',
+      data: {
+        user_id: wx.getStorageSync('userid')
+      },
+      header: {
+        'Cookie': wx.getStorageSync('sessionid')
+      },
+      success(res) {
+        wx.hideLoading()
+        that.setData({
+          userName: res.data.name
+        })
+      },
+      fail() {
+        wx.hideLoading()
+        wx.showToast({
+          title: '基本信息请求失败，请返回页面重新获取',
+          icon: 'warn',
+          duration: 1500
+        })
+      }
+    })
+  },
+
   getPhone: function () {
     let that = this
     wx.request({

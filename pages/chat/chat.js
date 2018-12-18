@@ -135,8 +135,8 @@ Page({
         })
         if (res.data.code === '1') {
           setTimeout(function () {
-            wx.navigateTo({
-              url: '../onlineSearchThi/onlineSearchThi'
+            wx.switchTab({
+              url: '../index/index'
             })
           }, 2000)
         }
@@ -173,7 +173,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    let userId = wx.getStorageSync('userid')
+    console.log(userId)
+    if (userId == '') {
+      wx.switchTab({
+        url: '../mine/index/index',
+      })
+    }
   },
 
   /**

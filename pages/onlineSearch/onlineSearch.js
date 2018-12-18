@@ -108,8 +108,9 @@ Page({
   },
 
   formSubmit: function (e) { // 表单提交
+    e.detail.value.userNumber = ''
     e.detail.value.utilize = this.data.lyObjecs[this.data.lyObjecIndex].value
-    e.detail.value.archiveType = this.data.daTypes[this.data.daTypeIndex].value
+    e.detail.value.archiveType = this.data.daTypes[this.data.daTypeIndex].name
     let userCompany = e.detail.value.userCompany
     let borrowContent = e.detail.value.borrowContent
     if (userCompany == null || userCompany == '') {

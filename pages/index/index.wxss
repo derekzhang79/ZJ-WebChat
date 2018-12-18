@@ -1,6 +1,6 @@
 /**index.wxss**/
 .container {
-  padding: 25rpx;
+  padding: 20rpx 18rpx;
 }
 .section {
   background: #fff;
@@ -17,11 +17,9 @@
 }
 .online-search .item.line {
   text-align: center;
-  border-right: 1px solid #adafaf;
+  border-left: 1px solid #adafaf;
 }
-.online-search .item:first-child {
-  padding: 24rpx;
-}
+
 .online-search .title {
   display: block;
   color: #e92e59;
@@ -35,12 +33,13 @@
   font-size: 26rpx;
 }
 .online-search-icon {
-  width: 120rpx;
-  height: 120rpx;
+  width: 180rpx;
+  height: 180rpx;
 }
 
 .welcome-box {
-  padding: 24rpx 20rpx;
+  padding: 24rpx 16rpx;
+  float: left;
 }
 .welcome-box .user-photo {
   text-align: center;
@@ -54,13 +53,24 @@
 .welcome-box .user-name {
   display: block;
   color: red;
-  font-size: 26rpx;
-  margin-bottom: 10rpx;
+  font-size: 34rpx;
+  margin-bottom: 5rpx;
+}
+.welcome-box .user-wxName {
+  display: block;
+  color: red;
+  font-size: 30rpx;
+  margin-bottom: 5rpx;
 }
 .welcome-box .welcome {
   display: block;
   font-size: 26rpx;
   color: #757676;
+}
+
+.welcome-box .appName {
+  color: #40aafc;
+  font-size: 28rpx;
 }
 
 .menu-box {

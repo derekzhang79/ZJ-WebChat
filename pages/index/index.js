@@ -7,12 +7,39 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     noticeList: [],
-    consultList: []
+    consultList: [],
+    userName: ''
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  getUserName: function () { // 根据userid获取用户的一些详细信息
+    let that = this
+    wx.request({
+      'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!getUser',
+      data: {
+        user_id: wx.getStorageSync('userid')
+      },
+      header: {
+        'Cookie': wx.getStorageSync('sessionid')
+      },
+      success(res) {
+        wx.hideLoading()
+        that.setData({
+          userName: res.data.name
+        })
+      },
+      fail() {
+        wx.hideLoading()
+        wx.showToast({
+          title: '基本信息请求失败，请返回页面重新获取',
+          icon: 'warn',
+          duration: 1500
+        })
+      }
     })
   },
   getNoticeList: function() { // 获取信息公告的列表数据
@@ -79,7 +106,9 @@ Page({
         }
       })
     }
-
+    if (this.data.userName == '' || this.data.userName == null) {
+      this.getUserName()
+    }
     this.getNoticeList()
     this.getConsultList()
   }

@@ -19,34 +19,34 @@ Page({
         url: '../index/index'
       })
     }, 2000)
-    // wx.request({
-    //   'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!examination',
-    //   method: 'POST',
-    //   header: {
-    //     'Cookie': wx.getStorageSync('sessionid')
-    //   },
-    //   success(res) {
-    //     wx.showToast({
-    //       title: res.data.message,
-    //       icon: 'success',
-    //       duration: 1500
-    //     })
-    //     if (res.data.code === '1') {
-    //       setTimeout(function () {
-    //         wx.switchTab({
-    //           url: '../index/index'
-    //         })
-    //       }, 2000)
-    //     }
-    //   },
-    //   fail() {
-    //     wx.showToast({
-    //       title: '提交失败，请重新点击提交',
-    //       icon: 'warn',
-    //       duration: 1500
-    //     })
-    //   }
-    // })
+    wx.request({
+      'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!examination',
+      method: 'POST',
+      header: {
+        'Cookie': wx.getStorageSync('sessionid')
+      },
+      success(res) {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'success',
+          duration: 1500
+        })
+        if (res.data.code === '1') {
+          setTimeout(function () {
+            wx.switchTab({
+              url: '../index/index'
+            })
+          }, 2000)
+        }
+      },
+      fail() {
+        wx.showToast({
+          title: '提交失败，请重新点击提交',
+          icon: 'warn',
+          duration: 1500
+        })
+      }
+    })
   },
 
   backHome: function() {

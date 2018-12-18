@@ -1,19 +1,23 @@
 <!--index.wxml-->
 <view class="container">
   <view class="section online-search">
-    <view class="item line">
-      <navigator url="../onlineSearch/onlineSearch">
-        <image class="online-search-icon" src="/images/index/online-search-icon.png"></image>
-        <text class="title">网上查档</text>
-        <text class="sub-title">一网查档、百馆联动</text>
-      </navigator>
-    </view>
     <view class="item welcome-box">
       <view class="user-photo">
         <image src="{{userInfo.avatarUrl}}"></image>
       </view>
-      <text class="user-name">亲爱的 {{userInfo.nickName}}</text>
-      <text class="welcome">欢迎使用浙江档案服务网</text>
+      <text class="user-name">亲爱的 {{userName}}</text>
+      <text class="user-wxName">({{userInfo.nickName}})</text>
+      <view class="welcome">
+        <view>如您需要查询档案资料或在线咨询，请随时随地在微信中</view>
+        <view>搜索小程序“<text class="appName">掌上查档</text>”</view>
+      </view>
+    </view>
+    <view class="item line">
+      <navigator url="../onlineSearch/onlineSearch">
+        <image class="online-search-icon" src="/images/index/online-search-icon.png"></image>
+        <text class="title">“浙”里查档</text>
+        <text class="sub-title">一网查档、百馆联动</text>
+      </navigator>
     </view>
   </view>
 
@@ -71,7 +75,7 @@
     <view class="weui-panel__bd">
       <navigator class="weui-media-box weui-media-box_text" wx:for="{{consultList}}" wx:key="item.id" url="../consultDetail/consultDetail?id={{item.id}}">
         <view class="weui-media-box__title weui-media-box__title_in-text">{{item.consultation_title}}</view>
-        <view class="weui-media-box__desc">{{item.create_date}}</view>
+        <view class="weui-media-box__desc">提问时间：{{item.create_date}}</view>
       </navigator>
     </view>
     <view class="weui-panel__ft">

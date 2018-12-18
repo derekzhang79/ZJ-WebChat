@@ -1,13 +1,14 @@
 /* pages/mine/consult/consult.wxss */
 .consult-list {
-  padding: 28rpx;
+  padding: 0 28rpx;
 }
 .list-item {
-  margin-bottom: 40rpx;
+  border-bottom: 2rpx solid #999;
+  padding: 40rpx 0;
 }
 .panel-item {
   background:#ffffff;
-  margin:23rpx 0rpx 23rpx 0rpx;
+  margin:18rpx 0;
   border:1rpx solid #E0E0E3;
   padding:20rpx 45rpx 20rpx 24rpx;
 }

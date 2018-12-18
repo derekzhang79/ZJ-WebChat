@@ -1,7 +1,7 @@
 <!--pages/onlineSearchSec/onlineSearchSec.wxml-->
 <view class="container">
   <form class="page__bd" bindsubmit="formSubmit">
-    <view class="weui-cells__title">请选择档案馆级别</view>
+    <view class="weui-cells__title">类别</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__bd">
@@ -12,7 +12,7 @@
       </view>
     </view>
 
-    <view class="weui-cells__title">请选择需要调档的档案馆</view>
+    <view class="weui-cells__title">目标档案馆</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__bd">

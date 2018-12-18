@@ -17,7 +17,7 @@ Page({
 
   ArchiveTypeChange: function (e) {
     this.setData({
-      HouseLevelIndex: e.detail.value
+      ArchiveTypeIndex: e.detail.value
     })
   },
 
