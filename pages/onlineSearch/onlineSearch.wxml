@@ -65,7 +65,7 @@
           <view class="weui-label">所属单位</view>
         </view>
         <view class="weui-cell__bd">
-          <input name="userCompany" class="weui-input" placeholder="请输入单位名称(必输项)" value="ces"/>
+          <input name="userCompany" class="weui-input" placeholder="请输入单位名称(必输项)" value=""/>
         </view>
       </view>
     </view>
