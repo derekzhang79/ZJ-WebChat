@@ -106,10 +106,12 @@ Page({
         }
       })
     }
+    this.getNoticeList()
+    this.getConsultList()
+  },
+  onShow: function () {
     if (this.data.userName == '' || this.data.userName == null) {
       this.getUserName()
     }
-    this.getNoticeList()
-    this.getConsultList()
   }
 })

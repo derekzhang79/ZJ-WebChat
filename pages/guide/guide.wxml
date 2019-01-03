@@ -1,6 +1,6 @@
 <!--pages/guide/guide.wxml-->
 <view class="container">
-  <view class="weui-cells__title">请选择档案馆级别</view>
+  <view class="weui-cells__title">类别</view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_select">
       <view class="weui-cell__bd">
@@ -11,7 +11,18 @@
     </view>
   </view>
 
-  <view class="weui-cells__title">请选择需要调档的档案馆</view>
+  <view class="weui-cells__title" wx:if="{{type == '2'}}">请选择地市</view>
+  <view class="weui-cells weui-cells_after-title" wx:if="{{type == '2'}}">
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__bd">
+        <picker bindchange="cityListChange" value="{{cityListIndex}}" range="{{cityList}}" range-key="name">
+          <view class="weui-select">{{cityList[cityListIndex].name}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells__title">目标档案馆</view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_select">
       <view class="weui-cell__bd">

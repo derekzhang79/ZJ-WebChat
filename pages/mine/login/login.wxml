@@ -4,28 +4,25 @@
       <image class="logo" src="/images/mine/logo.png"></image>
   </view>
   <view class="page__bd">
-    <view class="weui-cells__title">请绑定掌上查浙档账号，以便于下次快速登录</view>
+    <view class="weui-cells__title">请使用浙江政务服务网的注册用户和密码登录。</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
           <view class="weui-cell__hd">
-              <view class="weui-label">手机号码</view>
+              <view class="weui-label">账号</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请输入需要绑定的手机号" bindinput='getPhoneValue' value='{{mobile}}' auto-focus='true'/>
+              <input class="weui-input" placeholder="用户名/手机号/身份证号" bindinput='getPhoneValue' value='{{loginname}}' auto-focus='true'/>
           </view>
       </view>
     </view>
 
-    <view class="weui-cells">
-      <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
           <view class="weui-cell__hd">
-              <view class="weui-label">验证码</view>
+              <view class="weui-label">密码</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请输入验证码" type="number" bindinput='getCodeValue' value='{{code}}' />
-          </view>
-          <view class="weui-cell__ft">
-              <button class="weui-vcode-btn" bindtap='getVerificationCode' disabled='{{disabled}}'>{{codeName}}</button>
+              <input class="weui-input" password="true" placeholder="请输入密码" bindinput='getCodeValue' value='{{password}}' auto-focus='true'/>
           </view>
       </view>
     </view>
