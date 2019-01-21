@@ -53,7 +53,7 @@
 .welcome-box .user-name {
   display: block;
   color: red;
-  font-size: 34rpx;
+  font-size: 30rpx;
   margin-bottom: 5rpx;
 }
 .welcome-box .user-wxName {
@@ -70,7 +70,7 @@
 
 .welcome-box .appName {
   color: #40aafc;
-  font-size: 28rpx;
+  font-size: 30rpx;
 }
 
 .menu-box {
