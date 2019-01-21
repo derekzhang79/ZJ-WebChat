@@ -1,6 +1,6 @@
 <!--pages/guide/guide.wxml-->
 <view class="container">
-  <view class="weui-cells__title">类别</view>
+  <view class="weui-cells__title">档案馆类别</view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_select">
       <view class="weui-cell__bd">
