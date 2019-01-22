@@ -5,7 +5,8 @@
       <view class="user-photo">
         <image src="{{userInfo.avatarUrl}}"></image>
       </view>
-      <text class="user-name">亲爱的 {{userName}}</text>
+      <text class="user-name">亲爱的</text>
+      <text class="user-real-name">{{userName}}</text>
       <text class="user-wxName">({{userInfo.nickName}})</text>
       <view class="welcome">
         <view>如您需要查询档案资料或在线咨询，请随时随地在微信中</view>

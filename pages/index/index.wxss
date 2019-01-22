@@ -50,11 +50,15 @@
   height: 120rpx;
   border-radius: 50%;
 }
-.welcome-box .user-name {
-  display: block;
+.welcome-box .user-name,.welcome-box .user-real-name{
+  display: inline-block;
   color: red;
   font-size: 30rpx;
   margin-bottom: 5rpx;
+}
+.welcome-box .user-real-name{
+  margin-left:5px;
+  font-size: 32rpx;
 }
 .welcome-box .user-wxName {
   display: block;
@@ -70,7 +74,7 @@
 
 .welcome-box .appName {
   color: #40aafc;
-  font-size: 30rpx;
+  font-size: 32rpx;
 }
 
 .menu-box {
