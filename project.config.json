@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx95d8ad4dd5982572",
-	"projectname": "ZJ-WebChat",
+	"projectname": "chat",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

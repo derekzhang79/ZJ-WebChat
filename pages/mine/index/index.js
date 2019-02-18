@@ -66,6 +66,35 @@ Page({
       }
     })
   },
+  unbindClick:function(){
+    wx.request({
+  'url':'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!unBound',
+      data: {
+        user_id: wx.getStorageSync('userid')
+      },
+      header: {
+        'Cookie': wx.getStorageSync('sessionid')
+      },
+      success(res){
+        if(res.data.code === '1'){
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+
+        }else{
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 2000
+          })
+
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

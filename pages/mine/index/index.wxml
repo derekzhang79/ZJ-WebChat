@@ -4,6 +4,7 @@
     <image class="user-photo" src="{{userInfo.avatarUrl}}"></image>
     <navigator class="login" url="../login/login" wx:if="{{!isLogin}}">登录/绑定</navigator>
     <text class="user-name">{{phone}}</text>
+    <text class="unbind" id="unbind" bindtap="unbindClick">解除绑定</text>
   </view>
 
   <view class="weui-cells weui-cells_after-title">
