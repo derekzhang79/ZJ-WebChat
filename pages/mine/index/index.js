@@ -10,7 +10,8 @@ Page({
   data: {
     userInfo: {},
     isLogin: false,
-    phone: ''
+    isUnbind: true,
+    phone: '',
   },
 
   getUser: function () { // 根据userid获取用户的一些详细信息
@@ -58,7 +59,8 @@ Page({
         if (res.data.code === '1') {
           that.setData({
             isLogin: true,
-            phone: res.data.phone
+            isUnbind:false,
+            phone: res.data.phone, 
           })
         } else {
           return
@@ -67,6 +69,7 @@ Page({
     })
   },
   unbindClick:function(){
+    let that = this
     wx.request({
   'url':'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!unBound',
       data: {
@@ -82,7 +85,12 @@ Page({
             icon: 'none',
             duration: 2000
           })
-
+          that.setData({
+            isLogin: false,
+            isUnbind: true,
+            phone: '',
+          })
+         
         }else{
           wx.showToast({
             title: res.data.message,
