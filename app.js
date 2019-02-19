@@ -9,16 +9,6 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        if (res.code) {
-          this.globalData.js_code = res.code
-          wx.setStorageSync('code', res.code)
-        }
-      }
-    })
-    
     // 获取用户信息
     wx.getSetting({
       success: res => {

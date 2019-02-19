@@ -18,19 +18,25 @@ Page({
   },
   getUserName: function () { // 根据userid获取用户的一些详细信息
     let that = this
-
-    wx.request({
-      'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!sendSession',
-      data: {
-        JSCODE: wx.getStorageSync('code')
-      },
-      success(res) {
-        if (res.data) {
-          that.setData({
-            userName: res.data.name
+    // 登录
+    wx.login({
+      success: res => {
+        if (res.code) {
+          wx.request({
+            'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!sendSession',
+            data: {
+              JSCODE: res.code
+            },
+            success(res) {
+              if (res.data) {
+                that.setData({
+                  userName: res.data.name
+                })
+                wx.setStorageSync('sessionid', 'JSESSIONID=' + res.data.sessionid)
+                wx.setStorageSync('userid', res.data.userid)
+              }
+            }
           })
-          wx.setStorageSync('sessionid', 'JSESSIONID=' + res.data.sessionid)
-          wx.setStorageSync('userid', res.data.userid)
         }
       }
     })
