@@ -57,6 +57,7 @@ Page({
         method: "get",
         success: function (res) {
           wx.setStorageSync('userid', res.data.user_id)
+          wx.setStorageSync('isUnbindSuccess', "0")
           if (res.data.code === '1') {
             wx.showToast({
               title: res.data.message,

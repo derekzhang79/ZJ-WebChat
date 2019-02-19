@@ -11,7 +11,8 @@ Page({
     userInfo: {},
     isLogin: false,
     isUnbind: true,
-    phone: '',
+    phone: ''
+    
   },
 
   getUser: function () { // 根据userid获取用户的一些详细信息
@@ -80,6 +81,7 @@ Page({
       },
       success(res){
         if(res.data.code === '1'){
+          wx.setStorageSync('isUnbindSuccess', "1");
           wx.showToast({
             title: res.data.message,
             icon: 'none',
@@ -89,6 +91,7 @@ Page({
             isLogin: false,
             isUnbind: true,
             phone: '',
+           
           })
          
         }else{
@@ -143,8 +146,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
     if (this.data.phone == '' || this.data.phone == null) {
-      this.getPhone()
+      if (isUnbindSuccess=="0"){
+        this.getPhone()
+      }
+     
     }
   },
 
