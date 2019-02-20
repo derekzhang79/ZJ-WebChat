@@ -11,8 +11,7 @@ Page({
     userInfo: {},
     isLogin: false,
     isUnbind: true,
-    phone: ''
-    
+    phone: '',
   },
 
   getUser: function () { // 根据userid获取用户的一些详细信息
@@ -104,6 +103,49 @@ Page({
         }
       }
     })
+  },
+
+  myCheck:function(){
+    let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
+    if (isUnbindSuccess == "0"){
+      wx.redirectTo({
+        url: '../searchArchive/searchArchive'
+      })
+    }else{
+      wx.showToast({
+        title: '请先绑定账户',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+  },
+  myCourier: function () {
+    let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
+    if (isUnbindSuccess == "0") {
+      wx.redirectTo({
+        url: '../expressList/expressList'
+      })
+    } else {
+      wx.showToast({
+        title: '请先绑定账户',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+  },
+  myAdvisory: function () {
+    let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
+    if (isUnbindSuccess == "0") {
+      wx.redirectTo({
+        url: '../consult/consult'
+      })
+    } else {
+      wx.showToast({
+        title: '请先绑定账户',
+        icon: 'none',
+        duration: 2000
+      })
+    }
   },
 
   /**

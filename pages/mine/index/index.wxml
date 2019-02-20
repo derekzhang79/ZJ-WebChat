@@ -8,27 +8,27 @@
   </view>
 
   <view class="weui-cells weui-cells_after-title">
-    <navigator url="../searchArchive/searchArchive" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view  class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="myCheck">
         <view class="weui-cell__hd">
             <image class='leftIcon' src="/images/mine/searchArchive-icon.png"></image>
         </view>
         <view class="weui-cell__bd">我的查档</view>
         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-    <navigator url="../expressList/expressList" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="myCourier">
         <view class="weui-cell__hd">
             <image class='leftIcon' src="/images/mine/express-icon.png"></image>
         </view>
         <view class="weui-cell__bd">我的快递</view>
         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
-    <navigator url="../consult/consult" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    </view>
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="myAdvisory">
         <view class="weui-cell__hd">
             <image class='leftIcon' src="/images/mine/chat-icon.png"></image>
         </view>
         <view class="weui-cell__bd">我的咨询</view>
         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-    </navigator>
+    </view>
     <navigator url="../contactUs/contactUs" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
         <view class="weui-cell__hd">
             <image class='leftIcon' src="/images/mine/call-icon.png"></image>

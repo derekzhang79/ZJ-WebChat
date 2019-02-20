@@ -26,7 +26,7 @@
   height: 20px;
 }
 .unbind{
-  font-size: 24rpx;
+  font-size: 28rpx;
   color:#ffffff;
   background: #2395FD;
   padding:10rpx 20rpx;
