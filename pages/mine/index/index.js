@@ -108,7 +108,7 @@ Page({
   myCheck:function(){
     let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
     if (isUnbindSuccess == "0"){
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../searchArchive/searchArchive'
       })
     }else{
@@ -122,7 +122,7 @@ Page({
   myCourier: function () {
     let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
     if (isUnbindSuccess == "0") {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../expressList/expressList'
       })
     } else {
@@ -136,7 +136,7 @@ Page({
   myAdvisory: function () {
     let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
     if (isUnbindSuccess == "0") {
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../consult/consult'
       })
     } else {
