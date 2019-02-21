@@ -157,9 +157,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      borrowContent: options.archive_content 
-    })
+    // this.setData({
+    //   borrowContent: options.archive_content 
+    // })
     this.getUser()
   },
 
@@ -175,13 +175,13 @@ Page({
    */
   onShow: function () {
     
-    let userId = wx.getStorageSync('userid')
-    console.log(userId)
-    if (userId == '') {
-      wx.switchTab({
-        url: '../mine/index/index',
-      })
-    }
+    // let userId = wx.getStorageSync('userid')
+    // console.log(userId)
+    // if (userId == '') {
+    //   wx.switchTab({
+    //     url: '../mine/index/index',
+    //   })
+    // }
   },
 
   /**

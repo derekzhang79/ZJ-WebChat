@@ -14,11 +14,11 @@
       </view>
     </view>
     <view class="item line">
-      <navigator url="../onlineSearch/onlineSearch">
+      <view bindtap="checkFile">
         <image class="online-search-icon" src="/images/index/online-search-icon.png"></image>
         <text class="title">“浙”里查档</text>
         <text class="sub-title">一网查档、百馆联动</text>
-      </navigator>
+      </view>
     </view>
   </view>
 

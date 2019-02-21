@@ -81,6 +81,33 @@ Page({
       }
     })
   },
+  checkFile: function(){
+    let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
+    if (isUnbindSuccess == "0") {
+    //     wx.showToast({
+    //   title: isUnbindSuccess,
+    //   icon: 'none',
+    //   duration: 2000
+    // })
+      wx.navigateTo({
+        url: '../onlineSearch/onlineSearch'
+      })
+    } else {
+      
+      wx.showToast({
+        title: '请绑定账户',
+        duration: 1000,
+        success: function () {
+          setTimeout(function () {
+            //要延时执行的代码
+            wx.switchTab({
+              url: '../mine/index/index'
+            })
+          }, 1000) //延迟时间 
+        }
+      })
+    }
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -109,9 +136,27 @@ Page({
     this.getConsultList()
   },
   onShow: function () {
-    if (this.data.userName == '' || this.data.userName == null) {
-      this.getUserName()
+    // wx.showToast({
+    //   title: '请先绑定账户',
+    //   icon: 'none',
+    //   duration: 2000
+    // })
+    let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
+    //  wx.showToast({
+    //   title: isUnbindSuccess,
+    //   icon: 'none',
+    //   duration: 2000
+    // })
+    if(isUnbindSuccess=="1"){
+      this.setData({
+        userName:""
+      })
+    }else{
+      if (this.data.userName == '' || this.data.userName == null) {
+        this.getUserName()
+      }
     }
+   
   },
   onShareAppMessage: function (options) {
     var that = this;

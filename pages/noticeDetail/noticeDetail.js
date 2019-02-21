@@ -11,7 +11,7 @@ Page({
 
   getNoticeDetail: function () { // 获取信息公告的详情数据
     let that = this
-    //console.log(that.data.noticeId, "mynoticeId");
+    // console.log(that.data.noticeId, "mynoticeId");
     wx.request({
       url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxPublic!getPublicDetail?publicId='+that.data.noticeId,
       header: {
