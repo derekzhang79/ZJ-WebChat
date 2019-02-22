@@ -84,11 +84,6 @@ Page({
   checkFile: function(){
     let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
     if (isUnbindSuccess == "0") {
-    //     wx.showToast({
-    //   title: isUnbindSuccess,
-    //   icon: 'none',
-    //   duration: 2000
-    // })
       wx.navigateTo({
         url: '../onlineSearch/onlineSearch'
       })
@@ -136,17 +131,7 @@ Page({
     this.getConsultList()
   },
   onShow: function () {
-    // wx.showToast({
-    //   title: '请先绑定账户',
-    //   icon: 'none',
-    //   duration: 2000
-    // })
     let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
-    //  wx.showToast({
-    //   title: isUnbindSuccess,
-    //   icon: 'none',
-    //   duration: 2000
-    // })
     if(isUnbindSuccess=="1"){
       this.setData({
         userName:""
@@ -162,7 +147,7 @@ Page({
     var that = this;
     // 设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
-      title: "掌上查档",        // 默认是小程序的名称(可以写slogan等)
+      title: '"掌上查档"小程序随时为您服务指尖点点，百馆联动',        // 默认是小程序的名称(可以写slogan等)
       path: '',        // 默认是当前页面，必须是以‘/’开头的完整路径
       imageUrl: '/images/cover.png',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
       success: function (res) {
