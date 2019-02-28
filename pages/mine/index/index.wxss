@@ -14,10 +14,11 @@
 }
 .login-box .login {
   font-size: 34rpx;
+  margin-left:-30rpx;
 }
 .login-box .user-name {
-  font-size: 34rpx;
-  color: rgb(0, 132, 255);
+  font-size: 24rpx;
+  color: #858585;
 }
 .weui-cell__hd .leftIcon {
   margin-right: 5px;
@@ -26,10 +27,51 @@
   height: 20px;
 }
 .unbind{
-  font-size: 28rpx;
+  font-size: 24rpx;
   color:#ffffff;
   background: #2395FD;
   padding:10rpx 20rpx;
-  border-radius: 5px;
+  border-radius: 4px;
+  margin:10rpx auto 0;
+  display:block;
+}
+.login-box .box-zh .user-nc{
+  text-align:center;
+  display:block;
+  font-size: 24rpx;
+  color: #858585;
+}
+.container-bdzh{
   margin-left:30rpx;
+  text-align:center;
+}
+.login-box .wx-account{
+  font-size: 24rpx;
+  color: #ff0000;
+  display: block;
+  text-align: center;
+  margin-bottom:10rpx;
+}
+.container-bdzh .bdzh-word{
+  font-size: 30rpx;
+  color:#3f3f3f;
+}
+.container-bdzh .arrowIcon{
+  width:89rpx;
+  height: 31rpx;
+  display:block;
+  margin:0 auto;
+}
+.bdzh-content{
+  margin: 7rpx 0 0 75rpx
+}
+.bdzh-content text{
+  font-size: 24rpx;
+  color:#858585;
+  display: block;
+  margin-bottom:20rpx;
+}
+.bdzh-content text.bdzh-content-title{
+  color:#ff0000;
+  font-weight: 600;
 }

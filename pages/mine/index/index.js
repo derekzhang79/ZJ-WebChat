@@ -11,9 +11,11 @@ Page({
     userInfo: {},
     isLogin: false,
     isUnbind: true,
+    isContent:true,
     phone: '',
+    userName:'',
+    loginName:'',
   },
-
   getUser: function () { // 根据userid获取用户的一些详细信息
     wx.showLoading({
       title: '正在获取身份信息...',
@@ -60,7 +62,10 @@ Page({
           that.setData({
             isLogin: true,
             isUnbind:false,
-            phone: res.data.phone, 
+            isContent: false,
+            phone: res.data.phone,
+            userName: res.data.name,
+            loginName: res.data.login_name
           })
         } else {
           return
@@ -89,8 +94,10 @@ Page({
           that.setData({
             isLogin: false,
             isUnbind: true,
+            isContent: true,
             phone: '',
-           
+            userName: '',
+            loginName: '',
           })
          
         }else{

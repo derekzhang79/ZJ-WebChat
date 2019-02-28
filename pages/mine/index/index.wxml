@@ -1,12 +1,25 @@
 <!--pages/mine/index/index.wxml-->
 <view class="container">
   <view class="login-box">
-    <image class="user-photo" src="{{userInfo.avatarUrl}}"></image>
+    <view class='box-zh'>
+      <text class='wx-account' wx:if="{{!isContent}}">微信账户</text> 
+      <image class="user-photo" src="{{userInfo.avatarUrl}}"></image>
+      <text class="user-nc" wx:if="{{!isContent}}">{{userInfo.nickName}}</text>
+    </view>
+    <view class='container-bdzh'>
+      <text class='bdzh-word' wx:if="{{!isContent}}">绑定</text>
+      <image class='arrowIcon' src="/images/mine/arrow.png" wx:if="{{!isContent}}"></image>
+      <text class="unbind" bindtap="unbindClick" wx:if="{{!isUnbind}}">解除绑定</text>
+    </view>
+    <view class='bdzh-content' wx:if="{{!isContent}}">
+      <text class='bdzh-content-title'>浙江政务服务网账号</text>
+      <text>姓名：{{userName}}</text>
+      <text>登录名：{{loginName}}</text>
+      <text class="user-name">手机号：{{phone}}</text>
+    </view>
     <navigator class="login" url="../login/login" wx:if="{{!isLogin}}">登录/绑定</navigator>
-    <text class="user-name">{{phone}}</text>
-    <text class="unbind" bindtap="unbindClick" wx:if="{{!isUnbind}}">解除绑定</text>  
+    
   </view>
-
   <view class="weui-cells weui-cells_after-title">
     <view  class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="myCheck">
         <view class="weui-cell__hd">

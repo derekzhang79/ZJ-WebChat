@@ -1,5 +1,8 @@
 <!--pages/mine/consult/consult.wxml-->
 <view class="container">
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{list.length == 0}}">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+  </view>
   <view class="consult-list">
     <view class="list-item" wx:for="{{list}}" wx:key="item.id">
       <view class="panel-item">
