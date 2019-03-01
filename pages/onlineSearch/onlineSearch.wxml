@@ -78,7 +78,7 @@
         <view class="weui-cell__bd">
           <picker name="utilize" bindchange="bindUtilizeChange" value="{{lyObjecIndex}}" range="{{lyObjecs}}" range-key="name">
             <view class="weui-select">
-              {{lyObjecs[lyObjecIndex].name}}
+              <text wx:if="{{!isChoosEaim}}">请选择</text>{{lyObjecs[lyObjecIndex].name}}
             </view>
           </picker>
         </view>
@@ -93,7 +93,7 @@
         <view class="weui-cell__bd">
           <picker name="archiveType" bindchange="bindArchiveTypeChange" value="{{daTypeIndex}}" range="{{daTypes}}" range-key="name">
             <view class="weui-select">
-              {{daTypes[daTypeIndex].name}}
+              <text wx:if="{{!isChooseArchive}}">请选择</text>{{daTypes[daTypeIndex].name}}
             </view>
           </picker>
         </view>

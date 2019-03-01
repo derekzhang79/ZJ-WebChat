@@ -7,6 +7,8 @@ Page({
   data: {
     showTopTips: false,
     errorMsg: '',
+    isChooseArchive: false,
+    isChoosEaim: false,
     zjTypes: [
       { name: '身份证', value: '1' }
     ],
@@ -31,7 +33,7 @@ Page({
       { name: '经济建设', value: '7' },
       { name: '其他目的', value: '8' }
     ],
-    lyObjecIndex: 0,
+    lyObjecIndex: '',
 
     daTypes: [
       { name: '婚姻', value: '1' },
@@ -41,7 +43,7 @@ Page({
       { name: '二轮土地承包', value: '5' },
       { name: '其他类型', value: '6' }
     ],
-    daTypeIndex: 0,
+    daTypeIndex: '',
 
     showTopTips: false,
     errorMsg: '有错',
@@ -51,13 +53,15 @@ Page({
 
   bindUtilizeChange: function (e) {
     this.setData({
-      lyObjecIndex: e.detail.value
+      lyObjecIndex: e.detail.value,
+      isChoosEaim: true,
     })
   },
 
   bindArchiveTypeChange: function (e) {
     this.setData({
-      daTypeIndex: e.detail.value
+      daTypeIndex: e.detail.value,
+      isChooseArchive: true,
     })
   },
 
@@ -108,49 +112,74 @@ Page({
   },
 
   formSubmit: function (e) { // 表单提交
-    e.detail.value.userNumber = ''
-    e.detail.value.utilize = this.data.lyObjecs[this.data.lyObjecIndex].value
-    e.detail.value.archiveType = this.data.daTypes[this.data.daTypeIndex].name
-    let userCompany = e.detail.value.userCompany
-    let borrowContent = e.detail.value.borrowContent
-    if (userCompany == null || userCompany == '') {
-      this.bindShowTopTips('所属单位不能为空')
-      return
-    } 
-    if (borrowContent == null || borrowContent == '') {
-      this.bindShowTopTips('查档内容不能为空')
-      return
-    }
-    wx.request({
-      'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!getFormBase',
-      data: e.detail.value,
-      method: 'POST',
-      header: {
-        'content-type': 'application/json;charset=utf-8',
-        'Cookie': wx.getStorageSync('sessionid')
-      },
-      success(res) {
+    if (this.data.lyObjecIndex == "") {
+      wx.showToast({
+        title: '请选择利用目的',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.daTypeIndex == "") {
+      wx.showToast({
+        title: '请选择档案类型',
+        icon: 'none',
+        duration: 1500
+      })
+    }else{
+      e.detail.value.userNumber = ''
+      e.detail.value.utilize = this.data.lyObjecs[this.data.lyObjecIndex].value
+      e.detail.value.archiveType = this.data.daTypes[this.data.daTypeIndex].name
+      let userCompany = e.detail.value.userCompany
+      let borrowContent = e.detail.value.borrowContent
+      if (userCompany == null || userCompany == '') {
+        this.bindShowTopTips('所属单位不能为空')
+        return
+      } else if (this.data.lyObjecIndex == "") {
         wx.showToast({
-          title: res.data.message,
-          icon: 'success',
+          title: '请选择利用目的',
+          icon: 'none',
           duration: 1500
         })
-        if (res.data.code === '1') {
-          setTimeout(function () {
-            wx.navigateTo({
-              url: '../onlineSearchSec/onlineSearchSec'
-            })
-          }, 2000)
-        }
-      },
-      fail() {
+      } else if (this.data.daTypeIndex == "") {
         wx.showToast({
-          title: '提交失败，请重新点击提交',
-          icon: 'warn',
+          title: '请选择档案类型',
+          icon: 'none',
           duration: 1500
         })
+      } else if(borrowContent == null || borrowContent == '') {
+        this.bindShowTopTips('查档内容不能为空')
+        return
       }
-    }) 
+      wx.request({
+        'url': 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxBorrow!getFormBase',
+        data: e.detail.value,
+        method: 'POST',
+        header: {
+          'content-type': 'application/json;charset=utf-8',
+          'Cookie': wx.getStorageSync('sessionid')
+        },
+        success(res) {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'success',
+            duration: 1500
+          })
+          if (res.data.code === '1') {
+            setTimeout(function () {
+              wx.navigateTo({
+                url: '../onlineSearchSec/onlineSearchSec'
+              })
+            }, 2000)
+          }
+        },
+        fail() {
+          wx.showToast({
+            title: '提交失败，请重新点击提交',
+            icon: 'warn',
+            duration: 1500
+          })
+        }
+      }) 
+    }
   },
 
   /**

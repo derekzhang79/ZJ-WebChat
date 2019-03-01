@@ -10,19 +10,23 @@ Page({
       { name: '地市级综合档案馆', value: '1' },
       { name: '区县级综合档案馆', value: '2' }
     ],
-    HouseLevelIndex: 0,
+    isChooseLevel: false,
+    isChooseCity: false,
+    isChooseHouse: false,
+    HouseLevelIndex: '',
     type: '0',
     cityList: [],
-    cityListIndex: 0,
+    cityListIndex: '',
     cityId: '',
     HouseList: [],
-    HouseListIndex: 0
+    HouseListIndex: '',
   },
 
   HouseLevelChange: function (e) {
     this.setData({
       HouseLevelIndex: e.detail.value,
-      type: this.data.HouseLevels[e.detail.value].value
+      type: this.data.HouseLevels[e.detail.value].value,
+      isChooseLevel: true,
     })
     if (this.data.type == '0' || this.data.type == '1') {
       this.getHouseList()
@@ -36,14 +40,16 @@ Page({
 
   HouseListChange: function (e) {
     this.setData({
-      HouseListIndex: e.detail.value
+      HouseListIndex: e.detail.value,
+      isChooseHouse: true,
     })
   },
 
   cityListChange: function (e) {
     this.setData({
       cityListIndex: e.detail.value,
-      cityId: this.data.cityList[e.detail.value].daj_id
+      cityId: this.data.cityList[e.detail.value].daj_id,
+      isChooseCity: true
     })
     this.getQXHouseList()
   },
@@ -136,10 +142,30 @@ Page({
   },
 
   formSubmit: function () { // 表单提交
-    let org_id = this.data.HouseList[this.data.HouseListIndex].daj_id
-    wx.navigateTo({
-      url: '../guideList/guideList?org_id=' + org_id
-    })
+    if (this.data.HouseLevelIndex == "") {
+      wx.showToast({
+        title: '请选择档案馆类别',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.type == "2" && this.data.cityListIndex == "") {
+      wx.showToast({
+        title: '请选择地市',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.HouseListIndex == "") {
+      wx.showToast({
+        title: '请选择目标档案馆',
+        icon: 'none',
+        duration: 1500
+      })
+    } else {
+      let org_id = this.data.HouseList[this.data.HouseListIndex].daj_id
+      wx.navigateTo({
+        url: '../guideList/guideList?org_id=' + org_id
+      })
+    }
   },
 
   /**

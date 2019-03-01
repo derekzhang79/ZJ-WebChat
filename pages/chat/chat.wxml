@@ -27,7 +27,7 @@
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__bd">
           <picker bindchange="HouseLevelChange" value="{{HouseLevelIndex}}" range="{{HouseLevels}}" range-key="name">
-            <view class="weui-select">{{HouseLevels[HouseLevelIndex].name}}</view>
+            <view class="weui-select"><text wx:if="{{!isChooseLevel}}">请选择</text>{{HouseLevels[HouseLevelIndex].name}}</view>
           </picker>
         </view>
       </view>
@@ -38,7 +38,7 @@
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__bd">
           <picker bindchange="cityListChange" value="{{cityListIndex}}" range="{{cityList}}" range-key="name">
-            <view class="weui-select">{{cityList[cityListIndex].name}}</view>
+            <view class="weui-select"><text wx:if="{{!isChooseCity}}">请选择</text>{{cityList[cityListIndex].name}}</view>
           </picker>
         </view>
       </view>
@@ -49,7 +49,7 @@
       <view class="weui-cell weui-cell_select">
         <view class="weui-cell__bd">
           <picker name="userTargerArchivesid" bindchange="HouseListChange" value="{{HouseListIndex}}" range="{{HouseList}}" range-key="name">
-            <view class="weui-select">{{HouseList[HouseListIndex].name}}</view>
+            <view class="weui-select"><text wx:if="{{!isChooseHouse}}">请选择</text>{{HouseList[HouseListIndex].name}}</view>
           </picker>
         </view>
       </view>

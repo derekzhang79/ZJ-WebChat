@@ -6,32 +6,38 @@ Page({
    */
   data: {
     ArchiveTypes: [],
-    ArchiveTypeIndex: 0,
+    ArchiveTypeIndex: '',
+    isChooseArchive:false,
+    isChooseLevel: false,
+    isChooseCity: false,
+    isChooseHouse: false,
 
     HouseLevels: [
       { name: '省级综合档案馆', value: '0' },
       { name: '地市级综合档案馆', value: '1' },
       { name: '区县级综合档案馆', value: '2' }
     ],
-    HouseLevelIndex: 0,
+    HouseLevelIndex: '',
     type: '0',
     cityList: [],
-    cityListIndex: 0,
+    cityListIndex: '',
     cityId: '',
     HouseList: [],
-    HouseListIndex: 0
+    HouseListIndex: ''
   },
 
   ArchiveTypeChange: function (e) {
     this.setData({
-      ArchiveTypeIndex: e.detail.value
+      ArchiveTypeIndex: e.detail.value,
+      isChooseArchive: true,
     })
   },
 
   HouseLevelChange: function (e) {
     this.setData({
       HouseLevelIndex: e.detail.value,
-      type: this.data.HouseLevels[e.detail.value].value
+      type: this.data.HouseLevels[e.detail.value].value,
+      isChooseLevel: true,
     })
     if (this.data.type == '0' || this.data.type == '1') {
       this.getHouseList()
@@ -45,14 +51,16 @@ Page({
 
   HouseListChange: function (e) {
     this.setData({
-      HouseListIndex: e.detail.value
+      HouseListIndex: e.detail.value,
+      isChooseHouse: true,
     })
   },
 
   cityListChange: function (e) {
     this.setData({
       cityListIndex: e.detail.value,
-      cityId: this.data.cityList[e.detail.value].daj_id
+      cityId: this.data.cityList[e.detail.value].daj_id,
+      isChooseCity:true
     })
     this.getQXHouseList()
   },
@@ -67,7 +75,7 @@ Page({
         },
         success(res) {
           that.setData({
-            ArchiveTypes: res.data
+            ArchiveTypes: res.data,
           })
         },
         fail() {
@@ -170,11 +178,37 @@ Page({
   },
 
   formSubmit: function (e) { // 表单提交
-    e.detail.value.category_id = this.data.ArchiveTypes[this.data.ArchiveTypeIndex].category_id
-    e.detail.value.org_id = this.data.HouseList[this.data.HouseListIndex].daj_id
-    wx.navigateTo({
-      url: '../publicList/publicList?obj=' + JSON.stringify(e.detail.value)
-    })
+    if (this.data.ArchiveTypeIndex == ""){
+      wx.showToast({
+        title: '请选择档案类型',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.HouseLevelIndex == ""){
+      wx.showToast({
+        title: '请选择档案馆类别',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.type == "2" && this.data.cityListIndex == "") {
+      wx.showToast({
+        title: '请选择地市',
+        icon: 'none',
+        duration: 1500
+      })
+    } else if (this.data.HouseListIndex == ""){
+      wx.showToast({
+        title: '请选择目标档案馆',
+        icon: 'none',
+        duration: 1500
+      })
+    } else {
+      e.detail.value.category_id = this.data.ArchiveTypes[this.data.ArchiveTypeIndex].category_id,
+      e.detail.value.org_id = this.data.HouseList[this.data.HouseListIndex].daj_id
+      wx.navigateTo({
+        url: '../publicList/publicList?obj=' + JSON.stringify(e.detail.value)
+      })
+    }
   },
 
   /**
