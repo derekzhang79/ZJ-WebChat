@@ -26,21 +26,23 @@
           </view>
       </view>
     </view>
-
-    <checkbox-group bindchange="bindAgreeChange">
-      <label class="weui-agree" for="weuiAgree">
-        <view class="weui-agree__text">
-          <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
-          <view class="weui-agree__checkbox-icon">
-              <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
-          </view>
-          阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
-        </view>
-      </label>
-    </checkbox-group>
-
+    <view class='pwd-rgt'>
+    <view  class='password' bindtap="forgetPwd">忘记密码?</view >
+    <view  class='registered' bindtap="awayRgt">立即注册</view >
+    </view>
     <view class="weui-btn-area">
       <button class="weui-btn" type="primary" bindtap="handleSubmit" disabled='{{!isAgree}}'>完成绑定</button>
+      <checkbox-group bindchange="bindAgreeChange">
+        <label class="weui-agree" for="weuiAgree">
+          <view class="weui-agree__text">
+            <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+            <view class="weui-agree__checkbox-icon">
+                <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+            </view>
+            阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+          </view>
+        </label>
+      </checkbox-group>
     </view>
   </view>
 </view>

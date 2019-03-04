@@ -36,10 +36,10 @@
       </navigator>
     </view>
     <view class="item">
-      <navigator url="../chat/chat">
+      <view bindtap="OnlineConsultation">
         <image class="menu-icon" src="/images/index/chat-icon.png"></image>
         <text class="menu-title">网上咨询</text>
-      </navigator>
+      </view>
     </view>
     <view class="item">
       <navigator url="../eRecord/eRecord">

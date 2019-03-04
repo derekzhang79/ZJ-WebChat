@@ -38,7 +38,7 @@
           </view>
         </view>
         <view class="weui-form-preview__ft">
-          <navigator url="../onlineSearch/onlineSearch?archive_content={{item.archive_content}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查档登记</navigator>
+          <view  bindtap="checkLogin" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查档登记</view>
         </view>
       </view>
     </view>

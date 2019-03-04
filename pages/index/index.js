@@ -104,6 +104,29 @@ Page({
       })
     }
   },
+  OnlineConsultation: function () {
+    let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
+    if (isUnbindSuccess == "0") {
+      wx.navigateTo({
+        url: '../chat/chat'
+      })
+    } else {
+
+      wx.showToast({
+        title: '请先绑定账户',
+        duration: 1000,
+        icon: 'none',
+        success: function () {
+          setTimeout(function () {
+            //要延时执行的代码
+            wx.switchTab({
+              url: '../mine/index/index'
+            })
+          }, 1000) //延迟时间 
+        }
+      })
+    }
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

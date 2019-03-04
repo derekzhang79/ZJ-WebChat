@@ -22,7 +22,8 @@
           </view>
         </view>
         <view class="weui-form-preview__ft">
-          <navigator url="../onlineSearch/onlineSearch?archive_content={{item.title}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">查档登记</navigator>
+          <text class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="checkIn">
+          查档登记</text>
         </view>
       </view>
     </view>

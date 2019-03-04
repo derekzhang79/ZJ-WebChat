@@ -10,3 +10,23 @@
 .weui-cells {
   background-color: #fafafa;
 }
+.pwd-rgt{
+  margin: 23rpx 0;
+}
+.password{
+  font-size:30rpx;
+  color: #8f8e93;
+  float: right;
+  margin-right: 40rpx;
+}
+.registered{
+  font-size:30rpx;
+  color: #69966a;
+  margin-left: 40rpx;
+}
+.weui-btn-area{
+  margin-top:0;
+}
+.weui-agree{
+  padding:1em 15px;
+}

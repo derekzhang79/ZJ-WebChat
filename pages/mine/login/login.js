@@ -82,13 +82,47 @@ Page({
     }
     
   },
+  awayRgt: function () {
+    wx.setClipboardData({
+      data: 'https://puser.zjzwfw.gov.cn/sso/usp.do?action=mobileRegisterUser&servicecode=dagxxt',
+      success: function (res) {
+        wx.hideToast({
+          success(res) {
+            wx.showModal({
+              title: '提示',
+              content: '复制链接成功，可在手机浏览器中打开页面',
+              showCancel: false,
+              confirmText:'我知道了'
+            });
+          }
+        })
+      }
+    });
+  },
+  forgetPwd: function () {
+    wx.setClipboardData({
+      data: 'https://puser.zjzwfw.gov.cn/sso/usp.do?action=findPwd&servicecode=dagxxt',
+      success: function (res) {
+        wx.hideToast({
+          success(res) {
+            wx.showModal({
+              title: '提示',
+              content: '复制链接成功，可在手机浏览器中打开页面',
+              showCancel: false,
+              confirmText: '我知道了'
+            });
+          }
+        })
+      }
+    });
+  },
+  
   
   bindAgreeChange: function (e) {
     this.setData({
       isAgree: !!e.detail.value.length
     });
   },
-
   /**
    * 生命周期函数--监听页面加载
    */

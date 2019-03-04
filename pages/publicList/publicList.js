@@ -39,6 +39,28 @@ Page({
       }
     })
   },
+  checkIn: function () {
+    let isUnbindSuccess = wx.getStorageSync('isUnbindSuccess');
+    if (isUnbindSuccess == "0") {
+      wx.navigateTo({
+        url: '../onlineSearch/onlineSearch?archive_content={{item.title}}'
+      })
+    } else {
+      wx.showToast({
+        title: '请先绑定账户',
+        duration: 1000,
+        icon: 'none',
+        success: function () {
+          setTimeout(function () {
+            //要延时执行的代码
+            wx.switchTab({
+              url: '../mine/index/index'
+            })
+          }, 1000) //延迟时间 
+        }
+      })
+    }
+  },
 
   getMore: function () { // 上拉加载更多
     this.setData({
