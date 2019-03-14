@@ -42,7 +42,15 @@ Page({
         duration: 1000
       })
       return false;
-    } else {
+    } 
+    if (this.data.isAgree == false){
+      wx.showToast({
+        title: '请先阅读并同意《相关条款》',
+        icon: 'none',
+        duration: 1000
+      })
+      return false;
+    }else {
       let that = this
       wx.request({
         url: 'https://www.zjdafw.gov.cn/kgcx/lankgcx/xcxUser!bindAccount',
@@ -90,7 +98,7 @@ Page({
           success(res) {
             wx.showModal({
               title: '提示',
-              content: '复制链接成功，可在手机浏览器中打开页面，完成浙江政务服务网账户注册，再重回微信“掌上查档”小程序登录 ',
+              content: '复制链接成功，请在手机浏览器中粘贴地址打开页面，完成浙江政务服务网账户注册，再重回微信“掌上查档”小程序登录 ',
               showCancel: false,
               confirmText:'我知道了'
             });
@@ -107,7 +115,7 @@ Page({
           success(res) {
             wx.showModal({
               title: '提示',
-              content: '复制链接成功，可在手机浏览器中打开页面',
+              content: '复制链接成功，请在手机浏览器中粘贴地址打开页面，取回浙江政务服务网账户密码，再重回微信“掌上查档”小程序登录”',
               showCancel: false,
               confirmText: '我知道了'
             });

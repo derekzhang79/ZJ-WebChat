@@ -124,13 +124,22 @@ Page({
         icon: 'none',
         duration: 1500
       })
+    } else if (e.detail.value.userNumber == null || e.detail.value.userNumber == '') {
+      this.bindShowTopTips('证件号码不能为空')
+      return
+    } else if (e.detail.value.userName == null || e.detail.value.userName == '') {
+      this.bindShowTopTips('申请人不能为空')
+      return
+    } else if (e.detail.value.userTelephone == null || e.detail.value.userTelephone == '') {
+      this.bindShowTopTips('申请电话不能为空')
+      return
     }else{
       e.detail.value.userNumber = ''
       e.detail.value.utilize = this.data.lyObjecs[this.data.lyObjecIndex].value
       e.detail.value.archiveType = this.data.daTypes[this.data.daTypeIndex].name
       let userCompany = e.detail.value.userCompany
       let borrowContent = e.detail.value.borrowContent
-      if (userCompany == null || userCompany == '') {
+      if(userCompany == null || userCompany == '') {
         this.bindShowTopTips('所属单位不能为空')
         return
       } else if (this.data.lyObjecIndex == "") {

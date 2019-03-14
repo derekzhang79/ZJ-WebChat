@@ -4,14 +4,14 @@
       <image class="logo" src="/images/mine/logo.png"></image>
   </view>
   <view class="page__bd">
-    <view class="weui-cells__title">请使用浙江政务服务网的注册用户和密码登录。</view>
+    <view class="weui-cells__title">请使用<text class="page-word">浙江政务服务网</text>的<text class="page-word">注册用户</text>和<text class="page-word">密码</text>登录。</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
           <view class="weui-cell__hd">
               <view class="weui-label">账号</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="用户名/手机号/身份证号" bindinput='getPhoneValue' value='{{loginname}}' auto-focus='true'/>
+              <input class="weui-input" password="true" placeholder="用户名/手机号/身份证号" bindinput='getPhoneValue' value='{{loginname}}' auto-focus='true'/>
           </view>
       </view>
     </view>
@@ -26,13 +26,7 @@
           </view>
       </view>
     </view>
-    <view class='pwd-rgt'>
-    <view  class='password' bindtap="forgetPwd">忘记密码?</view >
-    <view  class='registered' bindtap="awayRgt">立即注册</view >
-    </view>
-    <view class="weui-btn-area">
-      <button class="weui-btn" type="primary" bindtap="handleSubmit" disabled='{{!isAgree}}'>完成绑定</button>
-      <checkbox-group bindchange="bindAgreeChange">
+    <checkbox-group bindchange="bindAgreeChange">
         <label class="weui-agree" for="weuiAgree">
           <view class="weui-agree__text">
             <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
@@ -42,7 +36,14 @@
             阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
           </view>
         </label>
-      </checkbox-group>
+    </checkbox-group>
+    <view class='pwd-rgt'>
+    <view  class='password' bindtap="forgetPwd">忘记密码?</view >
+    <view  class='registered' bindtap="awayRgt">立即注册</view >
+    </view>
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="handleSubmit">完成绑定</button>
+      
     </view>
   </view>
 </view>
