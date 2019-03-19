@@ -11,7 +11,7 @@
               <view class="weui-label">账号</view>
           </view>
           <view class="weui-cell__bd">
-              <input class="weui-input" password="true" placeholder="用户名/手机号/身份证号" bindinput='getPhoneValue' value='{{loginname}}' auto-focus='true'/>
+              <input class="weui-input"  placeholder="用户名/手机号/身份证号" bindinput='getPhoneValue' value='{{loginname}}' auto-focus='true'/>
           </view>
       </view>
     </view>
